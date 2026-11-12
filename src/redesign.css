@@ -354,3 +354,157 @@ a.bf-cal-row:active{background:rgba(255,255,255,.05)}
   .bf-rd .pokkiri-product .pokkiri-price{display:block!important;font-size:21px!important;margin:2px 0 8px!important}
   .bf-rd .pokkiri-product{padding:6px 6px 10px!important;border-radius:12px!important}
 }
+
+/* =========================================================
+   v4（11/12 修正）：FV看板にコピー一体化・透過ロゴ・軽い商品レーン・デモ表示
+   ========================================================= */
+/* デモ表示（確認用ページのみ） */
+.rd-demo{margin:0;padding:8px 16px;background:#fff3c4;color:#141210;font-size:14px;font-weight:700;text-align:center;letter-spacing:.06em;border-bottom:1px solid #e5d48a}
+
+/* 透過ロゴ */
+.bf-rd .hero-copy-group>.festival-copy-image.rd-logo{background:transparent!important;width:210px!important;max-width:60%!important;max-height:none!important;height:auto!important;margin:4px auto 10px!important}
+@media (min-width:768px){.bf-rd .hero-copy-group>.festival-copy-image.rd-logo{width:280px!important}}
+
+/* FV看板のコピー */
+.rd-hero-catch{margin:10px auto 14px;text-align:center}
+.rd-chance{margin:0;color:var(--rd-pink);font-size:clamp(19px,5.4vw,28px);font-weight:700;letter-spacing:.12em;line-height:1.4}
+.rd-hero-catch .rd-catch{margin:6px 0 0!important}
+.rd-hero-catch .rd-catch>strong{font-size:clamp(52px,15.5vw,104px)}
+@media (min-width:768px){.rd-hero-catch .rd-catch>strong b{display:inline}}
+.bf-rd .rd-entry{margin-top:18px}
+
+/* 流れる商品：小さく・なめらかに */
+.bf-rd .hero-product-track{will-change:transform;backface-visibility:hidden;transform:translateZ(0)}
+.bf-rd .hero-product-card{backface-visibility:hidden}
+.bf-rd .hero-product-card img{height:170px!important;max-width:120px!important}
+.bf-rd .hero-product-card,.bf-rd .hero-product-card:nth-child(2n),.bf-rd .hero-product-card:nth-child(3n){max-width:120px!important}
+@media (max-width:560px){
+  .bf-rd .hero-product-card img{height:96px!important;max-width:70px!important}
+  .bf-rd .hero-product-card,.bf-rd .hero-product-card:nth-child(2n),.bf-rd .hero-product-card:nth-child(3n){max-width:70px!important}
+  .bf-rd .hero-product-marquee{gap:8px!important;margin-top:14px!important}
+}
+.bf-rd .hero-product-card,.bf-rd .hero-product-card:nth-child(2n),.bf-rd .hero-product-card:nth-child(3n){height:auto!important;min-height:0!important}
+.bf-rd .hero-product-group{align-items:flex-end}
+.bf-rd .hero .rd-chance{font-size:clamp(19px,5.4vw,28px)!important;margin:0!important;letter-spacing:.12em!important;line-height:1.4!important;color:var(--rd-pink)!important}
+.rd-promise small{white-space:nowrap;letter-spacing:0!important}
+
+/* =========================================================
+   v5（11/12 修正）：文字を大きく・PCの余白・ガラポンより下はくすみピンク×ベージュ
+   ========================================================= */
+:root{--rd-dusty:#dcb1ad;--rd-dusty-deep:#a26f6b;--rd-dusty-ink:#4a3330;--rd-beige:#f4ece2;--rd-beige-line:#e3d3c6}
+
+/* --- スマホ：小さすぎる文字を底上げ --- */
+.bf-cal-days span{font-size:13px}
+.bf-cal-label em{font-size:14px}
+.bf-rd.bf-rd.bf-rd .schedule-card .schedule-step{font-size:12px!important}
+.bf-rd.bf-rd.bf-rd .schedule-card h3{font-size:15px!important}
+.bf-rd.bf-rd.bf-rd .schedule-card .schedule-condition{font-size:14px!important}
+.bf-rd.bf-rd.bf-rd .schedule-card .schedule-link{font-size:15px!important}
+.bf-rd.bf-rd.bf-rd .schedule-card .schedule-label{font-size:13px!important}
+.rd-entry>span{font-size:15px}
+.rd-entry>small{font-size:14px}
+.bf-rd.bf-rd.bf-rd .daily-day-card .daily-today-badge{font-size:14px!important}
+.bf-rd.bf-rd.bf-rd .brand-footer-copy{font-size:15px!important}
+.bf-rd.bf-rd.bf-rd .brand-footer-link{font-size:15px!important}
+.bf-rd.bf-rd.bf-rd .popular-product-name,.bf-rd.bf-rd.bf-rd .popular-product-name a{font-size:15px!important;line-height:1.55!important}
+@media (max-width:767px){
+  /* 1,000円ポッキリ・訳ありは2列にして文字を読める大きさに */
+  .bf-rd.bf-rd.bf-rd .pokkiri-product-grid{grid-template-columns:repeat(2,1fr)!important;gap:10px!important}
+  .bf-rd.bf-rd.bf-rd .pokkiri-product{padding:10px 10px 12px!important;border-radius:16px!important}
+  .bf-rd.bf-rd.bf-rd .pokkiri-product h3{font-size:15px!important;line-height:1.55!important;-webkit-line-clamp:3;min-height:calc(15px*1.55*3)!important;margin:8px 0 6px!important}
+  .bf-rd.bf-rd.bf-rd .pokkiri-product .pokkiri-price{font-size:26px!important}
+  .bf-rd.bf-rd.bf-rd .pokkiri-product .pokkiri-product-link{font-size:15px!important;padding:11px 6px!important}
+  .bf-rd.bf-rd.bf-rd .pokkiri-product .pokkiri-shipping{font-size:13px!important;padding:3px 8px!important}
+}
+
+/* --- PC：文字を大きく、余白を詰める --- */
+@media (min-width:768px){
+  .bf-rd.bf-rd.bf-rd .hero h1{font-size:clamp(96px,11.5vw,176px)!important;letter-spacing:.01em!important;max-width:100%}
+  .rd-chance,.bf-rd.bf-rd.bf-rd .hero .rd-chance{font-size:30px!important}
+  .rd-hero-catch .rd-catch>span{font-size:30px}
+  .bf-rd.bf-rd.bf-rd .festival-period{font-size:22px!important}
+  .rd-promise{width:min(92%,680px)}
+  .rd-promise small{font-size:16px}
+  .rd-promise strong{font-size:50px}
+
+  .rd-entry{max-width:760px;padding:20px 24px}
+  .rd-entry>span{font-size:18px}
+  .rd-entry>strong{font-size:38px}
+  .rd-entry>small{font-size:16px}
+
+  .bf-rd.bf-rd.bf-rd .ribbon-heading,.bf-rd.bf-rd.bf-rd .event-bubble{font-size:24px!important;min-height:60px!important}
+
+  .bf-cal{max-width:1000px}
+  .bf-cal-days span{font-size:15px}
+  .bf-cal-days b{font-size:30px}
+  .bf-cal-label{font-size:19px}
+  .bf-cal-label span{font-size:21px}
+  .bf-cal-label em{font-size:16px}
+  .bf-cal-track{height:38px}
+  .bf-cal-bar{font-size:15px}
+  .bf-rd.bf-rd.bf-rd .timeline-caption{font-size:18px!important}
+  .bf-rd.bf-rd.bf-rd .schedule-offers-title,.bf-rd.bf-rd.bf-rd .point5-recommendations>h3{font-size:28px!important}
+  .bf-rd.bf-rd.bf-rd .schedule-offers{max-width:1000px;margin:0 auto!important;gap:16px!important}
+  .bf-rd.bf-rd.bf-rd .schedule-card{padding:22px 24px!important}
+  .bf-rd.bf-rd.bf-rd .schedule-card .schedule-step{font-size:16px!important}
+  .bf-rd.bf-rd.bf-rd .schedule-card h3,.bf-rd.bf-rd.bf-rd .schedule-card h3 b,.bf-rd.bf-rd.bf-rd .schedule-card .schedule-daily-time b{font-size:19px!important}
+  .bf-rd.bf-rd.bf-rd .schedule-card .schedule-condition{font-size:17px!important}
+  .bf-rd.bf-rd.bf-rd .schedule-card .schedule-benefit strong{font-size:76px!important}
+  .bf-rd.bf-rd.bf-rd .schedule-card .schedule-benefit{font-size:26px!important}
+  .bf-rd.bf-rd.bf-rd .schedule-card .schedule-link{font-size:17px!important;padding:14px!important}
+  .bf-rd.bf-rd.bf-rd .schedule-game-callout{max-width:1000px;margin-left:auto!important;margin-right:auto!important}
+
+  .bf-rd.bf-rd.bf-rd .popular-product-name,.bf-rd.bf-rd.bf-rd .popular-product-name a,.bf-rd.bf-rd.bf-rd .pokkiri-product h3{font-size:16px!important}
+  .bf-rd.bf-rd.bf-rd .popular-product-price,.bf-rd.bf-rd.bf-rd .pokkiri-product .pokkiri-price{font-size:36px!important}
+  .bf-rd.bf-rd.bf-rd .popular-product-button,.bf-rd.bf-rd.bf-rd .pokkiri-product-link{font-size:16px!important}
+
+  .bf-rd.bf-rd.bf-rd .coupon-use-period strong{font-size:24px!important}
+  .bf-rd.bf-rd.bf-rd .coupon-use-period span{font-size:17px!important}
+
+  .rd-daily-head,.bf-rd.bf-rd.bf-rd .daily-coupon-grid{max-width:820px!important}
+  .rd-daily-head small{font-size:17px}
+  .rd-daily-head strong{font-size:76px}
+  .bf-rd.bf-rd.bf-rd .daily-coupon-section h2{font-size:32px!important}
+  .bf-rd.bf-rd.bf-rd .daily-coupon-intro{font-size:18px!important}
+  .bf-rd.bf-rd.bf-rd .daily-day-card{padding:16px 22px!important}
+  .bf-rd.bf-rd.bf-rd .daily-day-card .daily-date{font-size:24px!important}
+  .bf-rd.bf-rd.bf-rd .daily-day-card .daily-date:after{font-size:18px}
+  .bf-rd.bf-rd.bf-rd .daily-day-card .daily-today-badge{font-size:16px!important}
+
+  .bf-rd.bf-rd.bf-rd .feature-head h2{font-size:30px!important}
+  .bf-rd #daily-coupons{margin-top:24px!important;margin-bottom:16px!important}
+  .bf-rd.bf-rd.bf-rd .point-entry-section{padding-top:16px!important}
+  .bf-rd.bf-rd.bf-rd .features>.feature,.bf-rd.bf-rd.bf-rd .bottom>.feature{margin-bottom:32px!important}
+  .rd-p5{padding-block:28px 8px}
+}
+
+/* --- ガラポンより下：タイトル帯はくすみピンク、地はベージュ --- */
+.bf-rd #point-campaigns .ribbon-heading,
+.bf-rd.bf-rd.bf-rd .bottom .ribbon-heading,
+.bf-rd #products .ribbon-heading{background:var(--rd-dusty)!important;color:var(--rd-dusty-ink)!important;border-color:var(--rd-dusty)!important}
+.bf-rd #point-campaigns .ribbon-heading:after,
+.bf-rd.bf-rd.bf-rd .bottom .ribbon-heading:after,
+.bf-rd #products .ribbon-heading:after{border-top-color:var(--rd-dusty)!important}
+.bf-rd #point-campaigns .ribbon-heading:before,
+.bf-rd.bf-rd.bf-rd .bottom .ribbon-heading:before,
+.bf-rd #products .ribbon-heading:before{border-top-color:var(--rd-dusty)!important}
+.bf-rd #point-campaigns .pokkiri-product-link,
+.bf-rd.bf-rd.bf-rd .bottom .pokkiri-product-link,
+.bf-rd #products .popular-product-button,
+.bf-rd #products .product-find-form button{background:var(--rd-dusty-deep)!important;color:#fff!important;border-color:var(--rd-dusty-deep)!important}
+.bf-rd #products .rd-more-btn{background:#fff;color:var(--rd-dusty-deep);border-color:var(--rd-dusty-deep)}
+.bf-rd.bf-rd.bf-rd .rd-pokkiri-big em{background:var(--rd-dusty-deep)}
+.bf-rd.bf-rd.bf-rd .rd-pokkiri-big b{color:var(--rd-dusty-deep)}
+.bf-rd #point-campaigns .pokkiri-product .pokkiri-price,.bf-rd.bf-rd.bf-rd .bottom .pokkiri-price{color:var(--rd-dusty-deep)!important}
+.bf-rd #products .popular-product-price{color:#b2444f!important}
+.bf-rd #products .product-category-banner{border-color:var(--rd-beige-line)!important}
+.bf-rd.bf-rd.bf-rd .pokkiri-list-link{border-radius:999px!important}
+.bf-rd.bf-rd.bf-rd .nav-section-surface:has(#products){--section-surface:var(--rd-beige)}
+@media (min-width:768px){
+  .bf-rd.bf-rd.bf-rd #lottery p,.bf-rd.bf-rd.bf-rd #lottery button{font-size:17px!important}
+  .bf-rd.bf-rd.bf-rd #lottery h2{font-size:26px!important}
+  .bf-rd.bf-rd.bf-rd .product-category-label strong{font-size:22px!important}
+  .bf-rd.bf-rd.bf-rd .product-finder h3,.bf-rd.bf-rd.bf-rd .popular-product-heading h3{font-size:26px!important}
+}
+.bf-rd.bf-rd.bf-rd .rd-pokkiri-big{justify-content:center}
+.bf-rd.bf-rd.bf-rd .rd-pokkiri-big em{flex:0 0 100%;max-width:none;margin:8px 0 0;padding:0;background:none;color:var(--rd-dusty-deep);font-size:18px;letter-spacing:.1em}

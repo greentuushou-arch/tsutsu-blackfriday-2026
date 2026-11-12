@@ -169,3 +169,20 @@
   });
 })();
 </script>
+<script>
+/* BF REDESIGN：流れる商品の速度を少しゆっくりにする（元の計算値 × SLOW） */
+(function () {
+  var SLOW = 1.35;
+  document.querySelectorAll('.hero-product-track').forEach(function (track) {
+    var lastSet = '';
+    function adjust() {
+      var raw = track.style.getPropertyValue('--product-scroll-duration');
+      if (!raw || raw === lastSet) return;
+      lastSet = (parseFloat(raw) * SLOW).toFixed(2) + 's';
+      track.style.setProperty('--product-scroll-duration', lastSet);
+    }
+    adjust();
+    new MutationObserver(adjust).observe(track, { attributes: true, attributeFilter: ['style'] });
+  });
+})();
+</script>

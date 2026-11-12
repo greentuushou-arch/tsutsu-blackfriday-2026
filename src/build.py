@@ -28,12 +28,33 @@ def main() -> None:
     html = must_replace(html, "</head>", f"{fonts}<style id=\"bf-redesign\">\n{css}\n</style>\n</head>", "head")
     html = must_replace(html, "<body>", '<body class="bf-rd">', "body")
 
-    # メインコピー「まとめてストック！」を大きく
+    # ロゴは透過PNG（生成りの文字＋ピンクのハート）に差し替え
     html = must_replace(
         html,
-        '<p class="unified-promo-lead">いつもの「好き」を、<wbr>まとめてストック。</p>',
-        '<p class="unified-promo-lead rd-catch"><span>いつもの「好き」を</span><strong><b>まとめて</b><b>ストック！</b></strong></p>',
-        "main catch",
+        '<img class="festival-copy-image" src="image/logo-001.png" alt="">',
+        '<img class="festival-copy-image rd-logo" src="image/logo-dai-white.png" alt="にっぽん津々浦々" width="720" height="393">',
+        "logo",
+    )
+
+    # メインコピー「年に一度のチャンス！ いつもの「好き」を まとめてストック！」はFV看板に一体化
+    hero_catch = (
+        '<div class="rd-hero-catch"><p class="rd-chance">年に一度のチャンス！</p>'
+        '<p class="rd-catch"><span>いつもの「好き」を</span><strong><b>まとめて</b><b>ストック！</b></strong></p></div>'
+    )
+    html = must_replace(
+        html,
+        "<h1>BLACK<span>FRIDAY</span></h1>",
+        "<h1>BLACK<span>FRIDAY</span></h1>\n          " + hero_catch,
+        "hero catch",
+    )
+    # 元の「年に一度のチャンス」枠（BLACK FRIDAY ブラックフライデー特別企画の文字も）は外す。P10倍だけ残す
+    html = must_replace(
+        html,
+        '<p class="unified-promo-eyebrow">BLACK FRIDAY <span aria-hidden="true">｜</span> ブラックフライデー特別企画</p>\n'
+        '          <h2 id="unified-benefits-title">年に一度のチャンス！</h2>\n'
+        '          <p class="unified-promo-lead">いつもの「好き」を、<wbr>まとめてストック。</p>\n',
+        "",
+        "unified texts",
     )
 
     # 初めての方P10倍は「年に一度のチャンス」の枠から出して独立させる
@@ -44,12 +65,11 @@ def main() -> None:
         sys.exit("[build] unified-entry が見つかりません")
     html = html[: entry.start()] + html[entry.end():]
     entry_html = entry.group(0).strip().replace('class="unified-entry"', 'class="rd-entry"', 1)
-    html = must_replace(
-        html,
-        '\n        </section>\n      </div>\n      <section class="event-schedule"',
-        '\n        </section>\n        ' + entry_html + '\n      </div>\n      <section class="event-schedule"',
-        "entry move",
-    )
+    # 中身が空になった枠ごと P10倍ブロックに置き換える
+    unified_re = _re.compile(r'<section class="lead-benefits unified-benefits"[^>]*>\s*</section>', _re.S)
+    if len(unified_re.findall(html)) != 1:
+        sys.exit("[build] 空の unified-benefits が見つかりません")
+    html = unified_re.sub(lambda _m: entry_html, html)
 
     # ポイント5倍の商品は黒い期間欄から出して、明るい地に置く
     p5_re = _re.compile(r'\s*<section class="point5-recommendations".*?</section>', _re.S)
@@ -68,7 +88,7 @@ def main() -> None:
     promise = (
         '<div class="rd-promise">'
         '<div class="rd-gold"><small>当店クーポン 最大</small><strong>2,000<i>円OFF</i></strong></div>'
-        '<div class="rd-pink"><small>はじめての方は全品</small><strong>P10<i>倍</i></strong></div>'
+        '<div class="rd-pink"><small>新規の方はエントリーで</small><strong>P10<i>倍</i></strong></div>'
         "</div>"
     )
     html = must_replace(
@@ -121,7 +141,18 @@ def main() -> None:
     import re
     preview = re.sub(r'<script type="text/javascript" src="https://r\.r10s\.jp[^>]*></script>', "", html)
     preview = re.sub(r'<script type="text/template" name="rat"[^>]*></script>\s*', "", preview)
-    preview = preview.replace("<head>", '<head>\n<meta name="robots" content="noindex, nofollow">', 1)
+    preview = preview.replace(
+        "<head>",
+        '<head>\n<meta name="robots" content="noindex, nofollow, noarchive">'
+        '\n<meta name="googlebot" content="noindex, nofollow">',
+        1,
+    )
+    # デモ表示（納品用には入れない）
+    preview = preview.replace(
+        '<body class="bf-rd">',
+        '<body class="bf-rd">\n<p class="rd-demo">デモページです。</p>',
+        1,
+    )
     (ROOT / "index.html").write_text(preview, encoding="utf-8")
     (ROOT / "preview.html").write_text(preview, encoding="utf-8")
     print("[build] dist/index.html（納品用）/ index.html（確認用）を作成しました")
