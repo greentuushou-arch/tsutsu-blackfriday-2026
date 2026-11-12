@@ -508,3 +508,96 @@ a.bf-cal-row:active{background:rgba(255,255,255,.05)}
 }
 .bf-rd.bf-rd.bf-rd .rd-pokkiri-big{justify-content:center}
 .bf-rd.bf-rd.bf-rd .rd-pokkiri-big em{flex:0 0 100%;max-width:none;margin:8px 0 0;padding:0;background:none;color:var(--rd-dusty-deep);font-size:18px;letter-spacing:.1em}
+
+/* =========================================================
+   v6（11/12 修正）：期間欄を明るく・楽天BFと当店クーポンの違いを帯で・ボタン/アイコン
+   ========================================================= */
+/* FV：まとめてストックは白文字 */
+.bf-rd.bf-rd.bf-rd .rd-catch>strong{color:#fff;-webkit-text-fill-color:#fff;background:none;animation:none}
+
+/* 期間欄：黒をやめて明るい地に */
+.bf-rd.bf-rd.bf-rd .event-schedule{background:var(--rd-beige)!important;color:var(--rd-black)}
+.bf-rd.bf-rd.bf-rd .event-schedule #schedule-title{color:var(--rd-black)!important}
+.bf-rd.bf-rd.bf-rd .event-schedule #schedule-title b{color:var(--rd-dusty-deep)!important}
+.bf-rd.bf-rd.bf-rd .timeline-caption{display:none!important}
+.bf-rd.bf-rd.bf-rd .schedule-offers-title{color:var(--rd-black)!important}
+
+.bf-rd .bf-cal{background:#fff;border:1px solid var(--rd-beige-line);border-radius:18px;padding:14px 10px 12px;color:var(--rd-black)}
+.bf-rd .bf-cal-days{color:#7a6a64;border-bottom:2px solid var(--rd-black)}
+.bf-rd .bf-cal-days b{color:var(--rd-black)}
+.bf-rd .bf-cal-days span:nth-child(4) b,.bf-rd .bf-cal-days span:nth-child(5) b{color:var(--rd-pink)}
+.bf-rd .bf-cal-grid i{border-left:1px solid #e6d8ce}
+.bf-rd .bf-cal-grid i:first-child{border-left:0}
+.bf-rd .bf-cal-row{color:var(--rd-black)!important;padding:12px 0 6px}
+.bf-rd .bf-cal-row+.bf-cal-row{border-top:1px solid #efe4dc}
+.bf-rd .bf-cal-label{font-size:15px}
+.bf-rd .bf-cal-label span{font-size:15px;color:var(--rd-dusty-deep)}
+.bf-rd .bf-cal-label em{color:#7a6a64}
+.bf-rd .bf-cal-track{height:34px}
+.bf-rd .bf-cal-bar{font-size:13px;border-radius:999px;padding:0 10px}
+.bf-rd .bf-row-market .bf-cal-bar{background:#3b3532;border:0;color:#fff;transition-delay:0s}
+.bf-rd .bf-row-market .bf-cal-label strong{color:#3b3532}
+.bf-rd .bf-row-market .bf-cal-label span{color:#3b3532}
+.bf-rd .bf-row-shop .bf-cal-bar{background:var(--rd-g-gold);color:var(--rd-black);transition-delay:.3s}
+.bf-rd .bf-row-daily .bf-cal-bar{background:var(--rd-pink);color:#fff;transition-delay:.55s}
+.bf-rd .bf-cal-now{top:-40px}
+.bf-cal-note{margin:10px 4px 0;font-size:14px;line-height:1.7;font-weight:700;color:var(--rd-black);text-align:center;word-break:auto-phrase}
+.bf-cal-note b{color:var(--rd-dusty-deep);background:linear-gradient(transparent 62%,#f8d7d3 62%)}
+
+/* スタートダッシュは別枠 */
+.bf-cal-dash{position:relative;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 10px;margin:14px 0 0;padding:14px 16px;
+  border:2px dashed var(--rd-pink);border-radius:16px;background:#fff6f6;color:var(--rd-black)!important}
+.bf-cal-dash-tag{grid-column:1/-1;justify-self:start;background:var(--rd-pink);color:#fff;font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px}
+.bf-cal-dash-name{font-size:17px;font-weight:700}
+.bf-cal-dash-time{grid-column:1;font-size:15px;font-weight:700;color:#6b5a55}
+.bf-cal-dash-off{grid-column:2;grid-row:2/4;font-family:"Jost",sans-serif;font-size:44px;line-height:1;color:var(--rd-red);letter-spacing:-.01em}
+.bf-cal-dash-off i{font-style:normal;font-family:"Noto Sans JP",sans-serif;font-size:.36em;margin-left:2px}
+
+/* お楽しみ企画カード：明るい地で読みやすく、英字ラベルは外す */
+.bf-rd.bf-rd.bf-rd .schedule-card{background:#fff!important;border:1px solid var(--rd-beige-line)!important;border-radius:16px!important;color:var(--rd-black)!important;padding:14px 12px!important}
+.bf-rd.bf-rd.bf-rd .schedule-card .schedule-step{display:none!important}
+.bf-rd.bf-rd.bf-rd .schedule-card h3{color:var(--rd-black)!important;font-size:16px!important;line-height:1.5!important;margin:0!important}
+.bf-rd.bf-rd.bf-rd .schedule-card .schedule-condition{color:#5d4d48!important;font-size:15px!important}
+.bf-rd.bf-rd.bf-rd .schedule-card .schedule-benefit{color:var(--rd-red)!important}
+.bf-rd.bf-rd.bf-rd .schedule-card .schedule-label{color:var(--rd-pink)!important;border-color:var(--rd-pink)!important}
+.bf-rd.bf-rd.bf-rd .schedule-card .schedule-link{background:var(--rd-black)!important;color:#fff!important;border-radius:999px!important}
+.bf-rd.bf-rd.bf-rd .schedule-offers{gap:10px!important}
+.bf-rd.bf-rd.bf-rd .schedule-offers-title{margin:20px 0 10px!important}
+
+/* ガラポンのバナー：詰めて、わくわく感 */
+.bf-rd.bf-rd.bf-rd .schedule-game-callout{position:relative;overflow:hidden;display:flex!important;align-items:center;gap:12px;margin:14px 0 0!important;padding:12px 14px!important;min-height:0!important;
+  background:var(--rd-g-gold)!important;border:0!important;border-radius:18px!important;color:var(--rd-black)!important;box-shadow:0 4px 0 var(--rd-gold-lo)!important}
+.bf-rd.bf-rd.bf-rd .schedule-game-callout:after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);transform:skewX(-20deg);animation:rdSweep 3.2s ease-in-out infinite}
+.bf-rd.bf-rd.bf-rd .schedule-game-callout .kuji-overview-icon{flex:0 0 auto;width:64px!important;height:auto!important;transform-origin:50% 60%;animation:rdWobble 2.4s ease-in-out infinite}
+@keyframes rdWobble{0%,60%,100%{transform:rotate(0)}68%{transform:rotate(-12deg)}76%{transform:rotate(10deg)}84%{transform:rotate(-6deg)}92%{transform:rotate(3deg)}}
+.bf-rd.bf-rd.bf-rd .schedule-game-callout strong{display:block;font-size:19px!important;line-height:1.35!important;color:var(--rd-black)!important}
+.bf-rd.bf-rd.bf-rd .schedule-game-callout small{display:inline-block;margin-top:6px;padding:3px 10px;border-radius:999px;background:var(--rd-black);color:#fff!important;font-size:13px!important}
+.bf-rd.bf-rd.bf-rd .schedule-game-callout .game-callout-arrow{margin-left:auto;flex:0 0 auto;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--rd-black);color:#fff!important;font-size:13px!important}
+@media (min-width:768px){
+  .bf-rd.bf-rd.bf-rd .schedule-game-callout{padding:16px 24px!important}
+  .bf-rd.bf-rd.bf-rd .schedule-game-callout .kuji-overview-icon{width:84px!important}
+  .bf-rd.bf-rd.bf-rd .schedule-game-callout strong{font-size:26px!important}
+  .bf-rd.bf-rd.bf-rd .schedule-game-callout small{font-size:16px!important}
+  .bf-cal-note{font-size:17px}
+  .bf-cal-dash{max-width:1000px;margin-left:auto;margin-right:auto;padding:18px 24px}
+  .bf-cal-dash-name{font-size:22px}.bf-cal-dash-time{font-size:18px}.bf-cal-dash-off{font-size:60px}
+  .bf-rd .bf-cal{padding:20px 24px 18px}
+  .bf-rd .bf-cal-label,.bf-rd .bf-cal-label span{font-size:19px}
+  .bf-rd .bf-cal-bar{font-size:15px}
+}
+
+/* もっと見るボタン：黒線の角丸・黒文字だけ */
+.bf-rd.bf-rd.bf-rd .rd-more-btn,
+.bf-rd.bf-rd.bf-rd .pokkiri-list-link{background:transparent!important;color:var(--rd-black)!important;border:1.5px solid var(--rd-black)!important;border-radius:999px!important;box-shadow:none!important}
+.bf-rd.bf-rd.bf-rd #products .rd-more-btn{background:transparent!important;color:var(--rd-black)!important;border-color:var(--rd-black)!important}
+
+/* ポイント5倍アイコン：価格と同じ赤に白文字 */
+.bf-rd.bf-rd.bf-rd .point5-product-badge{background:var(--rd-red)!important;color:#fff!important;border-radius:4px!important}
+.bf-rd .bf-cal-bar{letter-spacing:0;padding:0 8px;font-size:12.5px}
+.bf-cal-dash-name{font-size:16px;white-space:nowrap}
+.bf-cal-dash-off{font-size:40px}
+.rd-daily-head small{white-space:nowrap;letter-spacing:0}
+@media (min-width:768px){.bf-rd .bf-cal-bar{font-size:15px;padding:0 12px}.bf-cal-dash-name{font-size:22px}.bf-cal-dash-off{font-size:60px}}
+.bf-cal-dash-off{white-space:nowrap;font-size:36px}
+@media (min-width:768px){.bf-cal-dash-off{font-size:60px}.bf-rd.bf-rd.bf-rd .schedule-game-callout{max-width:1000px;margin:16px auto 0!important}}
+@media (max-width:767px){.bf-cal-dash{padding:14px 12px}.bf-cal-dash-off{font-size:34px}.bf-cal-dash-name{font-size:15px}}

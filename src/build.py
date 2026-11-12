@@ -39,7 +39,7 @@ def main() -> None:
     # メインコピー「年に一度のチャンス！ いつもの「好き」を まとめてストック！」はFV看板に一体化
     hero_catch = (
         '<div class="rd-hero-catch"><p class="rd-chance">年に一度のチャンス！</p>'
-        '<p class="rd-catch"><span>いつもの「好き」を</span><strong><b>まとめて</b><b>ストック！</b></strong></p></div>'
+        '<p class="rd-catch"><span>いつもの「好き」を</span><strong><b>まとめて</b><b>ストック</b></strong></p></div>'
     )
     html = must_replace(
         html,
