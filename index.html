@@ -7717,6 +7717,36 @@ a.bf-cal-row:active{background:rgba(255,255,255,.05)}
   background-size:220% 100%!important;background-position:30% 0!important;
   -webkit-background-clip:text!important;background-clip:text!important;animation:none!important}
 
+/* =========================================================
+   v11（11/12 修正）：スタートダッシュは19日を指す吹き出しに
+   ========================================================= */
+/* カレンダー内の目印（19日20:00〜23:59） */
+.bf-cal-dashmark{position:absolute;top:0;bottom:-14px;left:var(--s);width:max(6px,calc(var(--e) - var(--s)));
+  background:rgba(196,20,47,.16);border-left:2px solid var(--rd-red);border-right:2px solid var(--rd-red);pointer-events:none;z-index:0}
+/* 吹き出し：19日から23日ぐらいまで（スマホは右端まで） */
+.bf-rd.bf-rd.bf-rd .bf-cal-dash{--from:10%;--w:90%;
+  position:relative;margin:14px 0 0 var(--from);width:var(--w);box-sizing:border-box;overflow:visible}
+.bf-rd.bf-rd.bf-rd .bf-cal-dash:before{content:"";position:absolute;top:-12px;
+  left:calc((var(--at) - var(--from)) / var(--w) * 100%);transform:translateX(-50%);
+  border:12px solid transparent;border-top:0;border-bottom-color:var(--rd-red)}
+@media (min-width:768px){
+  .bf-rd.bf-rd.bf-rd .bf-cal-dash{--from:10%;--w:50%;grid-template-columns:auto auto;column-gap:28px;padding:18px 22px;justify-content:center}
+  .bf-rd.bf-rd.bf-rd .bf-cal-dash-name{font-size:22px}
+  .bf-rd.bf-rd.bf-rd .bf-cal-dash-time,.bf-rd.bf-rd.bf-rd .bf-cal-dash-cond{font-size:16px}
+  .bf-rd.bf-rd.bf-rd .bf-cal-dash-tag{font-size:15px}
+  .bf-rd.bf-rd.bf-rd .bf-cal-dash-off{font-size:clamp(56px,6vw,84px)!important}
+}
+.bf-rd.bf-rd.bf-rd .bf-cal-note{margin-top:14px}
+@media (min-width:768px){
+  .bf-rd.bf-rd.bf-rd .bf-cal-dash{--w:52%;column-gap:20px;padding:16px 18px}
+  .bf-rd.bf-rd.bf-rd .bf-cal-dash-name{font-size:20px;white-space:nowrap}
+  .bf-rd.bf-rd.bf-rd .bf-cal-dash-off{font-size:clamp(48px,5vw,68px)!important}
+}
+@media (min-width:768px) and (max-width:1099px){
+  .bf-rd.bf-rd.bf-rd .bf-cal-dash{--w:62%;display:flex;flex-direction:column;align-items:center;text-align:center}
+  .bf-rd.bf-rd.bf-rd .bf-cal-dash-tag,.bf-rd.bf-rd.bf-rd .bf-cal-dash-cond{align-self:center}
+}
+
 </style>
 </head>
 
@@ -7934,16 +7964,19 @@ PC：768px以上／SP：767px以下。画像と商品情報の枠はHTMLコメ�
       <p class="bf-cal-label"><strong>毎日先着20名！15時に<span>500円OFF</span>クーポン</strong><em>▶</em></p>
       <div class="bf-cal-track"><div class="bf-cal-bar" style="--s:26.25%;--e:70%"><span>毎日15:00〜</span></div></div>
     </a>
+    <!-- スタートダッシュの時間（19日20:00〜23:59）に赤い目印 -->
+    <i class="bf-cal-dashmark" style="--s:18.33%;--e:20%" aria-hidden="true"></i>
   </div>
-  <p class="bf-cal-note">当店クーポンは楽天のブラックフライデーより<b>先に始まり</b>、終わったあとも<b>27日（金）まで</b>使えます</p>
 
-  <a class="bf-cal-dash" href="#start-coupon">
+  <!-- 吹き出しは19日から始まり、口で19日20:00を指す（--at = 指す位置%） -->
+  <a class="bf-cal-dash" href="#start-coupon" style="--at:18.33%">
     <span class="bf-cal-dash-tag">開始4時間だけ</span>
     <span class="bf-cal-dash-name">スタートダッシュクーポン</span>
     <span class="bf-cal-dash-time">19日（木）20:00〜23:59</span>
     <span class="bf-cal-dash-cond">3,000円以上で使える</span>
     <strong class="bf-cal-dash-off">250<i>円OFF</i></strong>
   </a>
+  <p class="bf-cal-note">当店クーポンは楽天のブラックフライデーより<b>先に始まり</b>、終わったあとも<b>27日（金）まで</b>使えます</p>
 </div>
 <!-- ▲ BF期間カレンダー -->
 
