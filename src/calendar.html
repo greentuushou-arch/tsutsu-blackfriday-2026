@@ -1,0 +1,30 @@
+<!-- ▼ BF期間カレンダー（スマホでも1画面に収まる10日間タイムライン）
+     位置は「11/18 0:00」起点の時間割合(%)で指定。日程を変える時は style の --s(開始%) と --e(終了%) を直す。
+     1日 = 10%（10日間）。例：19日20:00 = (24+20)/240 = 18.33% -->
+<div class="bf-cal" id="bf-cal" data-start="2026-11-18T00:00:00+09:00" data-end="2026-11-28T00:00:00+09:00">
+  <div class="bf-cal-days" aria-hidden="true">
+    <span><b>18</b>水</span><span><b>19</b>木</span><span><b>20</b>金</span><span><b>21</b>土</span><span><b>22</b>日</span><span><b>23</b>月</span><span><b>24</b>火</span><span><b>25</b>水</span><span><b>26</b>木</span><span><b>27</b>金</span>
+  </div>
+  <div class="bf-cal-body">
+    <div class="bf-cal-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="bf-cal-now" hidden><span>いまココ</span></div>
+
+    <div class="bf-cal-row bf-row-shop">
+      <p class="bf-cal-label"><strong>当店限定クーポン</strong><span>最大2,000円OFF</span></p>
+      <div class="bf-cal-track"><div class="bf-cal-bar" style="--s:0%;--e:100%"><span>11/18 0:00〜11/27 23:59</span></div></div>
+    </div>
+
+    <a class="bf-cal-row bf-row-dash" href="#start-coupon">
+      <p class="bf-cal-label"><strong>スタートダッシュ</strong><span>250円OFF</span><em>19日 20:00〜23:59 ▶</em></p>
+      <div class="bf-cal-track"><div class="bf-cal-pin" style="--s:18.33%;--e:20%"></div></div>
+    </a>
+
+    <a class="bf-cal-row bf-row-daily" href="#daily-coupons">
+      <p class="bf-cal-label"><strong>毎日15時クーポン</strong><span>500円OFF</span><em>先着20件 ▶</em></p>
+      <div class="bf-cal-track">
+        <i class="bf-cal-dot" style="--s:26.25%"></i><i class="bf-cal-dot" style="--s:36.25%"></i><i class="bf-cal-dot" style="--s:46.25%"></i><i class="bf-cal-dot" style="--s:56.25%"></i><i class="bf-cal-dot" style="--s:66.25%"></i>
+      </div>
+    </a>
+  </div>
+</div>
+<!-- ▲ BF期間カレンダー -->

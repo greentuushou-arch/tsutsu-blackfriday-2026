@@ -1,0 +1,356 @@
+/* =========================================================
+   BF REDESIGN LAYER（元ページのCSSの上から重ねるデザイン層）
+   黒 × ピンクゴールド × 津々浦々ピンク。外せば元のデザインに戻る。
+   ========================================================= */
+:root{
+  --rd-black:#141210;
+  --rd-black2:#1f1c18;
+  --rd-gold:#e7a1a4;
+  --rd-gold-hi:#ffdcdc;
+  --rd-gold-lo:#a8616b;
+  --rd-g-gold:linear-gradient(135deg,#a8616b 0%,#e7a1a4 28%,#fff0ee 50%,#e7a1a4 72%,#a8616b 100%);
+  --rd-pink:#f06e82;
+  --rd-pink-soft:#f8c3cc;
+  --rd-cream:#fdf5e1;
+  --rd-paper:#f6f0e0;
+  --bf-ribbon:#141210;
+}
+html body.bf-rd{
+  font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  letter-spacing:.08em;
+  background:var(--rd-paper);
+}
+.bf-rd .rd-en,.bf-rd .bf-cal-days b{font-family:"Jost","Noto Sans JP",sans-serif}
+
+/* ---------- FV ---------- */
+.bf-rd .hero{background:radial-gradient(120% 70% at 50% 0%,#2e211f 0%,var(--rd-black) 62%)!important}
+.bf-rd .hero h1{
+  font-family:"Jost",Impact,sans-serif!important;font-weight:700!important;
+  letter-spacing:.02em!important;line-height:.9!important;
+  color:transparent!important;
+  -webkit-text-fill-color:transparent;
+  background-image:linear-gradient(100deg,#a8616b 0%,#e7a1a4 22%,#fff2f0 36%,#e7a1a4 50%,#b96d77 70%,#e7a1a4 100%)!important;
+  background-size:220% 100%!important;
+  -webkit-background-clip:text!important;background-clip:text!important;
+  animation:rdShine 4.5s ease-in-out infinite;
+}
+.bf-rd .hero h1 span{
+  color:transparent!important;-webkit-text-fill-color:transparent;
+  background-image:linear-gradient(100deg,#a8616b 0%,#e7a1a4 22%,#fff2f0 36%,#e7a1a4 50%,#b96d77 70%,#e7a1a4 100%)!important;
+  background-size:220% 100%!important;
+  -webkit-background-clip:text!important;background-clip:text!important;
+  animation:rdShine 4.5s ease-in-out infinite .15s;
+}
+@keyframes rdShine{0%,55%{background-position:100% 0}85%,100%{background-position:0 0}}
+.bf-rd .festival-period{color:#fff!important;font-weight:700!important}
+.bf-rd .campaign-period-label{color:var(--rd-gold)!important}
+
+/* FVの約束（最大2,000円OFF） */
+.rd-promise{display:flex;align-items:stretch;justify-content:center;gap:0;margin:18px auto 4px;width:min(92%,520px);
+  border:2px solid var(--rd-gold);background:rgba(20,18,16,.6)}
+.rd-promise>div{flex:1;padding:10px 6px 9px;text-align:center;color:#fff;line-height:1.25}
+.rd-promise>div+div{border-left:2px dashed rgba(231,161,164,.7)}
+.rd-promise small{display:block;font-size:13px;color:var(--rd-gold-hi);font-weight:700}
+.rd-promise strong{display:block;font-family:"Jost","Noto Sans JP",sans-serif;font-size:clamp(28px,8.4vw,44px);font-weight:700;letter-spacing:0}
+.rd-promise strong i{font-style:normal;font-size:.5em;margin-left:2px}
+.rd-promise .rd-pink strong{color:var(--rd-pink)}
+.rd-promise .rd-gold strong{color:var(--rd-gold-hi)}
+
+/* ナビ */
+.bf-rd .tabs,.bf-rd .floating-header{background:var(--rd-black)!important}
+.bf-rd .tabs a,.bf-rd .floating-nav a{color:#fff!important;font-weight:700!important;letter-spacing:.06em}
+.bf-rd .tabs a.is-active,.bf-rd .floating-nav a.is-active,
+.bf-rd .tabs a[aria-current],.bf-rd .floating-nav a[aria-current]{background:var(--rd-g-gold)!important;color:var(--rd-black)!important}
+
+/* ---------- 見出し（ピンク帯 → 黒×金） ---------- */
+.bf-rd .ribbon-heading,
+.bf-rd .event-bubble,
+.bf-rd .feature .feature-head>.ribbon-heading{
+  background:var(--rd-black)!important;color:var(--rd-gold-hi)!important;
+  font-weight:700!important;letter-spacing:.06em!important;
+  border-color:var(--rd-black)!important;
+}
+.bf-rd .ribbon-heading:after,.bf-rd .event-bubble:after{border-top-color:var(--rd-black)!important}
+.bf-rd .event-bubble b{color:var(--rd-pink)!important}
+
+/* ---------- 年に一度のチャンス ---------- */
+.bf-rd .unified-benefits{background:var(--rd-black)!important;border:2px solid var(--rd-gold)!important;border-radius:0!important}
+.bf-rd .unified-benefits h2{color:var(--rd-gold-hi)!important}
+.bf-rd .unified-promo-eyebrow{color:var(--rd-gold)!important}
+.bf-rd .unified-entry{background:var(--rd-g-gold)!important;color:var(--rd-black)!important;border-radius:0!important;
+  position:relative;overflow:hidden}
+.bf-rd .unified-entry strong span{color:#c4142f!important}
+.bf-rd .unified-entry:after,.bf-rd .rd-shine:after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent);transform:skewX(-20deg);
+  animation:rdSweep 3.6s ease-in-out infinite}
+@keyframes rdSweep{0%,60%{left:-60%}90%,100%{left:130%}}
+
+/* ---------- 期間（黒地 + 10日間カレンダー） ---------- */
+.bf-rd .event-schedule{background:var(--rd-black)!important;color:#fff}
+.bf-rd .event-schedule .nav-section-surface:before,.bf-rd .event-schedule:before{background:var(--rd-black)!important}
+.bf-rd .event-schedule .timeline-table-scroll,
+.bf-rd .event-schedule .timeline-table-title{display:none!important}
+.bf-rd .event-schedule #schedule-title{background:transparent!important;color:#fff!important;font-size:clamp(26px,7vw,40px)!important;padding-bottom:4px!important}
+.bf-rd .event-schedule #schedule-title b{font-family:"Jost",sans-serif;font-size:1.7em;color:var(--rd-gold-hi)!important;margin:0 .08em;line-height:1}
+.bf-rd .event-schedule #schedule-title:after{display:none!important}
+.bf-rd .timeline-caption{color:#fff!important;text-align:center}
+.bf-rd .timeline-caption strong{color:var(--rd-gold-hi)!important}
+.bf-rd .schedule-offers-title,.bf-rd .point5-recommendations>h3{color:#fff!important}
+
+.bf-cal{max-width:760px;margin:14px auto 18px;color:#fff;--day:10%}
+.bf-cal-days{display:grid;grid-template-columns:repeat(10,1fr);text-align:center;font-size:12px;font-weight:700;color:rgba(255,255,255,.7);
+  border-bottom:1px solid rgba(231,161,164,.5);padding-bottom:6px}
+.bf-cal-days span{display:flex;flex-direction:column;line-height:1.1}
+.bf-cal-days b{font-size:clamp(17px,5vw,24px);color:#fff;font-weight:600}
+.bf-cal-days span:nth-child(5) b,.bf-cal-days span:nth-child(4) b{color:var(--rd-pink-soft)}
+.bf-cal-body{position:relative;padding:4px 0 8px}
+.bf-cal-grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(10,1fr);pointer-events:none}
+.bf-cal-grid i{border-left:1px dashed rgba(255,255,255,.14)}
+.bf-cal-grid i:first-child{border-left:0}
+.bf-cal-row{position:relative;display:block;padding:12px 0 4px;color:#fff!important}
+.bf-cal-row+.bf-cal-row{border-top:1px solid rgba(255,255,255,.08)}
+.bf-cal-label{margin:0 0 7px;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;font-size:15px;line-height:1.35;position:relative;z-index:1}
+.bf-cal-label strong{font-weight:700}
+.bf-cal-label span{color:var(--rd-gold-hi);font-weight:700;font-size:17px}
+.bf-cal-label em{font-style:normal;font-size:13px;color:rgba(255,255,255,.75);margin-left:auto}
+.bf-cal-track{position:relative;height:30px}
+.bf-cal-bar{position:absolute;top:0;bottom:0;left:var(--s);width:calc(var(--e) - var(--s));display:flex;align-items:center;
+  padding:0 8px;font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;
+  transform-origin:left center;transform:scaleX(0);transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.bf-cal.is-in .bf-cal-bar{transform:scaleX(1)}
+.bf-row-shop .bf-cal-bar{background:var(--rd-g-gold);color:var(--rd-black)}
+.bf-row-market .bf-cal-bar{background:transparent;border:2px solid #fff;color:#fff;transition-delay:.35s}
+.bf-row-market .bf-cal-label strong{color:rgba(255,255,255,.85)}
+.bf-cal-pin{position:absolute;top:0;bottom:0;left:var(--s);width:max(10px,calc(var(--e) - var(--s)));background:var(--rd-pink);
+  box-shadow:0 0 0 0 rgba(240,110,130,.7);animation:rdPulse 1.8s ease-out infinite}
+.bf-cal-dot{position:absolute;top:50%;left:var(--s);width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:var(--rd-pink);
+  opacity:0;transform:scale(.3);transition:opacity .4s,transform .4s}
+.bf-cal.is-in .bf-cal-dot{opacity:1;transform:scale(1)}
+.bf-cal.is-in .bf-cal-dot:nth-child(2){transition-delay:.12s}.bf-cal.is-in .bf-cal-dot:nth-child(3){transition-delay:.24s}
+.bf-cal.is-in .bf-cal-dot:nth-child(4){transition-delay:.36s}.bf-cal.is-in .bf-cal-dot:nth-child(5){transition-delay:.48s}
+@keyframes rdPulse{0%{box-shadow:0 0 0 0 rgba(240,110,130,.7)}80%,100%{box-shadow:0 0 0 10px rgba(240,110,130,0)}}
+a.bf-cal-row:active{background:rgba(255,255,255,.05)}
+.bf-cal-now{position:absolute;top:-30px;bottom:0;left:var(--now,0);width:2px;background:var(--rd-pink);z-index:2;pointer-events:none}
+.bf-cal-now span{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);background:var(--rd-pink);color:#fff;font-size:11px;font-weight:700;
+  padding:2px 6px;white-space:nowrap}
+
+/* 期間内のお楽しみ（2枚を横並びで短く） */
+.bf-rd .schedule-offers{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important;margin:0!important;padding:0!important}
+.bf-rd .schedule-card{margin:0!important;padding:14px 12px!important;border-radius:0!important;background:var(--rd-black2)!important;
+  border:1.5px solid var(--rd-gold)!important;color:#fff!important;min-height:0!important;box-shadow:none!important}
+.bf-rd .schedule-card:before,.bf-rd .schedule-card:after{display:none!important}
+.bf-rd .schedule-card .schedule-step{color:var(--rd-gold)!important;font-family:"Jost",sans-serif;letter-spacing:.12em}
+.bf-rd .schedule-card h3{color:#fff!important;font-size:14px!important;line-height:1.5!important}
+.bf-rd .schedule-card h3 b,.bf-rd .schedule-card .schedule-label{background:var(--rd-pink)!important;color:#fff!important}
+.bf-rd .schedule-card .schedule-condition{color:rgba(255,255,255,.8)!important;font-size:13px!important;margin:8px 0 0!important}
+.bf-rd .schedule-card .schedule-benefit{color:var(--rd-gold-hi)!important;margin:2px 0 8px!important}
+.bf-rd .schedule-card .schedule-benefit strong{font-family:"Jost",sans-serif;font-size:clamp(38px,11vw,56px)!important;line-height:1}
+.bf-rd .schedule-card .schedule-link{background:var(--rd-g-gold)!important;color:var(--rd-black)!important;border-radius:0!important}
+.bf-rd .schedule-game-callout{background:var(--rd-pink)!important;border-color:var(--rd-pink)!important;border-radius:0!important;color:#fff!important}
+
+/* ポイント5倍の商品（スマホは4つ → もっと見る） */
+.bf-rd .point5-recommendations{background:transparent!important}
+.bf-rd .point5-product-grid .popular-product-card{background:#fff!important}
+
+/* ---------- 共通：もっと見る ---------- */
+.rd-more-wrap.is-collapsed>.rd-more-item{display:none!important}
+.rd-more-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:min(100%,420px);margin:16px auto 0;padding:15px 16px;
+  background:var(--rd-black);color:var(--rd-gold-hi);border:2px solid var(--rd-gold);font:inherit;font-size:16px;font-weight:700;cursor:pointer;letter-spacing:.06em}
+.rd-more-btn:after{content:"";width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-3px) rotate(45deg)}
+.rd-more-btn[aria-expanded="true"]:after{transform:translateY(2px) rotate(-135deg)}
+.event-schedule .rd-more-btn{background:var(--rd-g-gold);color:var(--rd-black);border-color:var(--rd-gold)}
+
+/* ---------- クーポン ---------- */
+.bf-rd .coupon-use-period strong{color:#c4142f!important}
+.bf-rd .coupon-image{transition:transform .2s}
+.bf-rd .coupon-image:active{transform:scale(.97)}
+
+/* ---------- 毎日15時（5日分を日めくり風の行に） ---------- */
+.bf-rd .daily-coupon-section{background:var(--rd-black)!important;color:#fff;border-radius:0!important}
+.bf-rd .daily-coupon-section h2{color:#fff!important}
+.bf-rd .daily-limit-badge{background:var(--rd-pink)!important;color:#fff!important;border-radius:0!important}
+.rd-daily-head{display:flex;align-items:center;justify-content:center;gap:14px;margin:6px auto 14px;padding:12px 16px;max-width:520px;
+  background:var(--rd-g-gold);color:var(--rd-black);position:relative;overflow:hidden}
+.rd-daily-head small{display:block;font-size:13px;font-weight:700;line-height:1.4}
+.rd-daily-head strong{font-family:"Jost","Noto Sans JP",sans-serif;font-size:clamp(40px,12vw,58px);font-weight:700;line-height:1;letter-spacing:0}
+.rd-daily-head strong i{font-style:normal;font-size:.42em}
+.bf-rd .daily-coupon-slider{overflow:visible!important}
+.bf-rd .daily-coupon-grid{display:grid!important;grid-template-columns:1fr!important;gap:6px!important;overflow:visible!important;padding:0!important;
+  max-width:520px;margin:0 auto!important;transform:none!important}
+.bf-rd .daily-day-card{display:grid!important;grid-template-columns:1fr auto;align-items:center;gap:8px;
+  width:auto!important;min-width:0!important;max-width:none!important;height:auto!important;min-height:0!important;aspect-ratio:auto!important;
+  margin:0!important;padding:12px 14px!important;border-radius:0!important;
+  background:var(--rd-black2)!important;border:1.5px solid rgba(255,255,255,.18)!important;color:#fff!important;box-shadow:none!important;
+  transform:none!important;flex:none!important;position:relative}
+.bf-rd .daily-day-card .daily-card-image{display:none!important}
+.bf-rd .daily-day-card .daily-date{order:0;font-size:19px!important;font-weight:700!important;color:#fff!important;margin:0!important;text-align:left!important}
+.bf-rd .daily-day-card .daily-date:after{content:"  15:00〜";font-size:14px;color:rgba(255,255,255,.7);white-space:pre}
+.bf-rd .daily-day-card .daily-today-badge{position:static!important;order:1;transform:none!important;margin:0!important;
+  background:var(--rd-pink)!important;color:#fff!important;font-size:13px!important;padding:4px 10px!important;border-radius:0!important}
+.bf-rd .daily-day-card .daily-today-badge:after,.bf-rd .daily-day-card .daily-today-badge:before{display:none!important}
+.bf-rd .daily-day-card.is-featured{border-color:var(--rd-gold)!important;background:#2c1f1c!important}
+.bf-rd .daily-day-card.is-featured .daily-date{color:var(--rd-gold-hi)!important}
+.bf-rd .daily-day-card[aria-disabled="false"]:after{content:"獲得する ▶";order:2;grid-column:1/-1;justify-self:stretch;text-align:center;
+  background:var(--rd-g-gold);color:var(--rd-black);font-weight:700;padding:8px;margin-top:4px}
+.bf-rd .daily-coupon-intro{color:rgba(255,255,255,.8)!important}
+
+/* ---------- ガラポン ---------- */
+.bf-rd .kuji-no-lose{background:var(--rd-black)!important;color:var(--rd-gold-hi)!important;border-radius:0!important}
+
+/* ---------- 1,000円ポッキリ・訳あり（スマホ3列で短く） ---------- */
+@media (max-width:767px){
+  .bf-rd .pokkiri-product-grid{grid-template-columns:repeat(3,1fr)!important;gap:8px!important}
+  .bf-rd .pokkiri-product{padding:6px 6px 10px!important;border-radius:0!important}
+  .bf-rd .pokkiri-product h3{font-size:12px!important;line-height:1.45!important;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin:6px 0 4px!important;min-height:0!important}
+  .bf-rd .pokkiri-product .pokkiri-price{font-size:18px!important;margin:0 0 6px!important;color:#c4142f!important}
+  .bf-rd .pokkiri-product .pokkiri-product-link{font-size:12px!important;padding:7px 2px!important;border-radius:0!important;white-space:nowrap}
+  .bf-rd .pokkiri-product .pokkiri-shipping{font-size:11px!important;padding:2px 5px!important}
+  .bf-rd .pokkiri-feature:not(.wakeari-feature) .pokkiri-product .pokkiri-price{display:none!important}
+}
+.bf-rd .pokkiri-product .pokkiri-product-link,.bf-rd .popular-product-button{background:var(--rd-black)!important;color:#fff!important}
+
+/* 1,000円ポッキリ見出しの大きな数字 */
+.rd-pokkiri-big{display:flex;align-items:baseline;justify-content:center;gap:6px;margin:-6px 0 14px;font-weight:700;color:var(--rd-black)}
+.rd-pokkiri-big b{font-family:"Jost",sans-serif;font-size:clamp(54px,16vw,84px);line-height:1;color:#c4142f;letter-spacing:0}
+.rd-pokkiri-big span{font-size:clamp(20px,6vw,28px)}
+
+/* ---------- 価格・バッジ ---------- */
+.bf-rd .popular-product-price{color:#c4142f!important;font-family:"Jost","Noto Sans JP",sans-serif}
+.bf-rd .point5-product-badge{background:var(--rd-black)!important;color:var(--rd-gold-hi)!important;border-radius:0!important}
+
+/* ---------- 商品を探す ---------- */
+.bf-rd .product-find-form button{background:var(--rd-black)!important;color:var(--rd-gold-hi)!important}
+.bf-rd .product-category-banner{background:#fff!important;border:1.5px solid var(--rd-black)!important;border-radius:0!important}
+
+/* ---------- 動きを控えたい人には止める ---------- */
+@media (prefers-reduced-motion:reduce){
+  .bf-rd .hero h1,.bf-rd .unified-entry:after,.bf-rd .rd-shine:after,.bf-cal-pin{animation:none!important}
+  .bf-cal-bar,.bf-cal-dot{transition:none!important;transform:none!important;opacity:1!important}
+}
+
+/* ---------- 調整 ---------- */
+.bf-rd h2,.bf-rd h3,.bf-rd .ribbon-heading{word-break:auto-phrase;text-wrap:balance}
+.bf-rd .schedule-card h3{font-size:14px!important}
+.bf-rd .schedule-card h3 b,.bf-rd .schedule-card .schedule-daily-time b{display:inline-block!important;font-size:14px!important;line-height:1.4!important;padding:2px 6px!important;margin:6px 0 0!important;background:var(--rd-pink)!important;color:#fff!important}
+.bf-rd .schedule-card .schedule-daily-time{display:block!important;margin-top:4px}
+.bf-rd .schedule-card .schedule-label{font-size:12px!important;padding:2px 6px!important;margin:6px 0 0 4px!important;background:transparent!important;border:1px solid var(--rd-pink)!important;color:var(--rd-pink-soft)!important}
+.bf-rd .schedule-card .schedule-link{font-size:14px!important;padding:10px 10px!important;white-space:nowrap;min-height:0!important}
+.bf-rd .schedule-card .schedule-benefit{font-size:18px!important}
+@media (max-width:767px){
+  .bf-rd .schedule-offers-title,.bf-rd .point5-recommendations>h3{font-size:20px!important}
+}
+.rd-pokkiri-big{flex-wrap:wrap}
+.rd-pokkiri-big span{white-space:nowrap}
+.rd-pokkiri-big em{flex-basis:100%;text-align:center;font-style:normal;font-size:16px;margin-top:4px}
+.rd-pokkiri-big em:before{content:"";display:inline-block;width:0}
+.rd-pokkiri-big em{color:#fff;background:var(--rd-black);padding:4px 0;max-width:220px;margin:6px auto 0}
+.rd-daily-head{justify-content:space-between}
+.rd-daily-head>div{flex:1;min-width:0}
+.rd-daily-head strong{white-space:nowrap;font-size:clamp(38px,11vw,54px)}
+.bf-rd .event-schedule #schedule-title{white-space:nowrap;font-size:clamp(22px,6.4vw,40px)!important}
+
+/* =========================================================
+   v2（11/12 修正）：ピンクゴールド・はじけるFV・メインコピー・ずれ/余白
+   ========================================================= */
+.bf-rd .ribbon-heading,.bf-rd .event-bubble{letter-spacing:.1em!important}
+.bf-rd h2,.bf-rd h3{letter-spacing:.08em}
+
+/* --- FV：はじけ飛ぶ --- */
+.bf-rd .brand-confetti-canvas,.bf-rd .festival-confetti{display:none!important}
+.rd-burst{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.bf-rd .hero{position:relative;overflow:hidden}
+.bf-rd .hero-copy-group,.bf-rd .hero-product-marquee{position:relative;z-index:2}
+.bf-rd .hero h1{
+  animation:rdPop .8s cubic-bezier(.18,1.5,.4,1) both,rdShine 4.5s ease-in-out 1.2s infinite!important;
+}
+.bf-rd .hero h1 span{animation:rdShine 4.5s ease-in-out 1.35s infinite!important}
+@keyframes rdPop{0%{transform:scale(.35);opacity:0;filter:blur(6px)}60%{opacity:1;filter:blur(0)}100%{transform:scale(1);opacity:1}}
+.bf-rd .hero h1.is-bump{animation:rdBump .45s ease-out,rdShine 4.5s ease-in-out 1.2s infinite!important}
+@keyframes rdBump{0%{transform:scale(1)}35%{transform:scale(1.06)}100%{transform:scale(1)}}
+.rd-promise{animation:rdRise .55s cubic-bezier(.2,1.3,.4,1) .55s both}
+@keyframes rdRise{0%{transform:translateY(18px) scale(.9);opacity:0}100%{transform:none;opacity:1}}
+
+/* --- メインコピー「まとめてストック！」 --- */
+.bf-rd .unified-benefits h2{font-size:clamp(18px,5vw,24px)!important;color:var(--rd-pink)!important;margin:4px 0 0!important;line-height:1.4!important}
+.rd-catch{margin:4px 0 20px!important;text-align:center;line-height:1.2}
+.rd-catch>span{display:block;font-size:clamp(19px,5.4vw,28px);color:#fff;font-weight:700;letter-spacing:.1em}
+.rd-catch>strong{display:block;margin-top:4px;font-size:clamp(50px,15vw,96px);font-weight:700;line-height:1.1;letter-spacing:.06em;
+  color:transparent;-webkit-text-fill-color:transparent;
+  background-image:linear-gradient(100deg,#a8616b 0%,#e7a1a4 22%,#fff2f0 38%,#e7a1a4 55%,#b96d77 75%,#e7a1a4 100%);
+  background-size:220% 100%;-webkit-background-clip:text;background-clip:text;animation:rdShine 4.5s ease-in-out 2s infinite}
+.rd-catch>strong b{display:block;font-weight:inherit}
+
+/* --- 商品を見るボタンの位置をそろえる --- */
+.bf-rd .pokkiri-product,.bf-rd .popular-product-card{display:flex!important;flex-direction:column!important}
+.bf-rd .pokkiri-product .pokkiri-product-link{margin-top:auto!important}
+.bf-rd .popular-product-body{flex:1 1 auto}
+.bf-rd .popular-product-button,.bf-rd .pokkiri-product-link,.bf-rd .schedule-link,.bf-rd .rd-more-btn{letter-spacing:.04em!important;text-align:center;justify-content:center}
+@media (max-width:767px){
+  .bf-rd .pokkiri-product h3{min-height:calc(12px*1.45*3)!important}
+  .bf-rd .pokkiri-product .pokkiri-product-link{display:flex!important;align-items:center;justify-content:center;gap:2px}
+}
+
+/* --- 余白を詰める（スマホ） --- */
+@media (max-width:767px){
+  .bf-rd .hero-product-marquee{margin-bottom:6px!important}
+  .bf-rd .unified-benefits{margin-top:16px!important;margin-bottom:16px!important}
+  .bf-rd #daily-coupons{margin-top:20px!important;margin-bottom:12px!important}
+  .bf-rd .point-entry-section{padding-top:14px!important}
+  .bf-rd #lottery{margin-bottom:16px!important}
+  .bf-rd .features>.feature,.bf-rd .bottom>.feature{margin-bottom:24px!important}
+  .bf-rd .wakeari-feature{margin-top:12px!important;padding-top:12px!important;margin-bottom:24px!important}
+  .bf-rd .feature-head{margin-bottom:12px!important}
+}
+@media (prefers-reduced-motion:reduce){
+  .bf-rd .hero h1,.bf-rd .hero h1 span,.rd-promise,.rd-catch>strong{animation:none!important}
+}
+
+.bf-rd .unified-benefits p,.bf-rd .unified-entry small,.bf-rd .unified-entry span{word-break:auto-phrase;text-wrap:balance}
+.rd-promise small{letter-spacing:.04em}
+.rd-catch{margin-top:14px!important}
+.bf-rd .unified-promo-eyebrow>span{display:none}
+.bf-rd .daily-day-card .daily-date{white-space:nowrap;letter-spacing:.04em}
+.rd-pokkiri-big{gap:4px;letter-spacing:.02em}
+.rd-pokkiri-big b{font-size:clamp(48px,13vw,84px)}
+.rd-pokkiri-big span{font-size:clamp(19px,5.4vw,28px)}
+.bf-cal-label{letter-spacing:.04em}
+
+/* =========================================================
+   v3（11/12 修正）：価格を大きく・P10倍を独立・白い角丸の商品カード
+   ========================================================= */
+:root{--rd-card-line:#efe2dc;--rd-red:#c4142f}
+
+/* --- 初めての方 P10倍（独立した角丸ブロック） --- */
+.rd-entry{display:flex;flex-direction:column;align-items:center;gap:2px;margin:0 auto 18px;max-width:560px;padding:14px 16px 13px;
+  background:#fff;border:2px solid var(--rd-pink);border-radius:18px;color:var(--rd-black);text-align:center;line-height:1.45;cursor:pointer}
+.rd-entry>span{font-size:14px;font-weight:700;color:#6b5a55}
+.rd-entry>strong{font-size:clamp(22px,6.4vw,30px);font-weight:700;letter-spacing:.04em}
+.rd-entry>strong span{font-family:"Jost",sans-serif;font-size:1.45em;color:var(--rd-pink);margin:0 .04em;letter-spacing:0}
+.rd-entry>small{font-size:13px;font-weight:700;color:#6b5a55;word-break:auto-phrase}
+.bf-rd .unified-benefits{padding-bottom:18px!important}
+.bf-rd .unified-benefits .rd-catch{margin-bottom:6px!important}
+
+/* --- ポイント5倍の商品：明るい地に --- */
+.rd-p5{padding-block:22px 6px}
+.bf-rd .rd-p5 .point5-recommendations{margin:0!important;padding:0!important}
+.bf-rd .rd-p5 .point5-recommendations>h3{color:var(--rd-black)!important;text-align:center}
+.bf-rd .point5-more-links a{border-radius:14px!important}
+
+/* --- 商品カード：白い角丸の中に全部 --- */
+.bf-rd .popular-product-card,.bf-rd .pokkiri-product{
+  background:#fff!important;border:1px solid var(--rd-card-line)!important;border-radius:16px!important;
+  padding:10px 10px 12px!important;box-shadow:0 2px 0 rgba(20,18,16,.05)!important;overflow:hidden}
+.bf-rd .popular-product-photo,.bf-rd .pokkiri-image{border-radius:10px!important;overflow:hidden;background:#fff!important;border:0!important}
+.bf-rd .popular-product-body,.bf-rd .popular-product-price{padding-left:2px!important;padding-right:2px!important}
+.bf-rd .popular-product-button,.bf-rd .pokkiri-product .pokkiri-product-link{border-radius:999px!important}
+.bf-rd .popular-product-grid,.bf-rd .point5-product-grid{gap:10px!important}
+
+/* --- 価格：大きく・字間は詰める --- */
+.bf-rd .popular-product-price,.bf-rd .pokkiri-product .pokkiri-price{
+  font-family:"Jost","Noto Sans JP",sans-serif!important;font-weight:700!important;color:var(--rd-red)!important;
+  font-size:clamp(26px,7.6vw,34px)!important;letter-spacing:-.01em!important;line-height:1.05!important;margin:6px 0 10px!important}
+.rd-yen{font-family:"Noto Sans JP",sans-serif;font-size:.52em;letter-spacing:0;margin-left:1px}
+@media (max-width:767px){
+  .bf-rd .pokkiri-product .pokkiri-price{display:block!important;font-size:21px!important;margin:2px 0 8px!important}
+  .bf-rd .pokkiri-product{padding:6px 6px 10px!important;border-radius:12px!important}
+}

@@ -1,0 +1,13 @@
+dist/
+ext/
+shots/
+artifact.html
+preview.html
+stripped.html
+orig-preview.html
+js-part.txt
+map.tsv
+ext.txt
+imglist.txt
+files.json
+__pycache__/
