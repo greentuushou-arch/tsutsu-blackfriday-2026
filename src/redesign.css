@@ -744,3 +744,11 @@ a.bf-cal-row:active{background:rgba(255,255,255,.05)}
 .bf-rd.bf-rd.bf-rd .coupon-grid>.coupon{flex:0 0 calc((100% - 10px)/2);max-width:calc((100% - 10px)/2);margin:0!important}
 .bf-rd.bf-rd.bf-rd .coupon-grid>.coupon:not(:has(img[src]:not([src=""]))){display:none!important}
 @media (min-width:768px){.bf-rd.bf-rd.bf-rd .coupon-grid>.coupon{flex-basis:calc((100% - 20px)/3);max-width:calc((100% - 20px)/3)}}
+
+/* v10：追従ヘッダーの BLACK FRIDAY をFVと同じ書体・ピンクゴールドに（動きなし） */
+.bf-rd.bf-rd.bf-rd .floating-brand strong{
+  font-family:"Jost",Impact,sans-serif!important;font-weight:700!important;letter-spacing:.02em!important;font-style:normal!important;
+  color:transparent!important;-webkit-text-fill-color:transparent;
+  background-image:linear-gradient(100deg,#a8616b 0%,#e7a1a4 22%,#fff2f0 36%,#e7a1a4 50%,#b96d77 70%,#e7a1a4 100%)!important;
+  background-size:220% 100%!important;background-position:30% 0!important;
+  -webkit-background-clip:text!important;background-clip:text!important;animation:none!important}
