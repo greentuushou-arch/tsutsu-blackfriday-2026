@@ -142,7 +142,7 @@ def build_artifact() -> None:
     out = head + '\n<script>document.body.classList.add("bf-rd")</script>\n' + body
     out = out.replace(
         "<title>BLACK FRIDAY｜BLACK × GOLD｜にっぽん津々浦々</title>",
-        '<title>津々浦々 BF特集 改修案</title>\n<meta name="robots" content="noindex">',
+        '<title>津々浦々 BF特集 改修案</title>',
     )
     # 楽天の画像はArtifactでは読めないので ext/ のコピーに差し替え（map.tsv）
     map_file = ROOT / "map.tsv"
