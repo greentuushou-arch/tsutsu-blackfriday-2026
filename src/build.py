@@ -28,6 +28,27 @@ def main() -> None:
     html = must_replace(html, "</head>", f"{fonts}<style id=\"bf-redesign\">\n{css}\n</style>\n</head>", "head")
     html = must_replace(html, "<body>", '<body class="bf-rd">', "body")
 
+    # 「クーポン・お楽しみ企画もチェック！」の2枚のクーポンは外し、
+    # クーポン一覧（クーポンをまとめてゲット）へ飛ぶボタンにする
+    import re as _re1
+    offers_re = _re1.compile(
+        r'<h3 class="schedule-offers-title">クーポン・お楽しみ企画もチェック！</h3>\s*<ul class="schedule-grid schedule-offers">.*?</ul>',
+        _re1.S,
+    )
+    if len(offers_re.findall(html)) != 1:
+        sys.exit("[build] お楽しみ企画のクーポン欄が見つかりません")
+    coupon_callout = (
+        '<a class="schedule-game-callout rd-coupon-callout" href="#coupons">'
+        '<svg class="rd-ticket-icon" viewBox="0 0 120 80" aria-hidden="true">'
+        '<path d="M8 8h104v20a12 12 0 0 0 0 24v20H8V52a12 12 0 0 0 0-24z" fill="#fdf5e1"/>'
+        '<path d="M78 14v52" stroke="#e7a1a4" stroke-width="3" stroke-dasharray="5 5"/>'
+        '<text x="42" y="50" text-anchor="middle" font-family="Jost,sans-serif" font-weight="700" font-size="26" fill="#c4142f">OFF</text>'
+        "</svg>"
+        "<span><strong>クーポン一覧をチェック</strong><small>最大2,000円OFF・まとめてゲット</small></span>"
+        '<span class="game-callout-arrow" aria-hidden="true">▶</span></a>'
+    )
+    html = offers_re.sub(lambda _m: coupon_callout, html)
+
     # 見出し・文言の変更（11/12 ユーザー指示）
     html = must_replace(
         html,

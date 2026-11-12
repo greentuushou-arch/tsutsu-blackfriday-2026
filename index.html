@@ -7626,6 +7626,53 @@ a.bf-cal-row:active{background:rgba(255,255,255,.05)}
 @media (min-width:768px){.bf-cal-dash-cond{font-size:18px}}
 @media (max-width:767px){.bf-rd .bf-row-daily .bf-cal-label em{display:none}.bf-cal-dash-off{font-size:31px}.bf-cal-dash{gap:2px 6px}}
 
+/* =========================================================
+   v8（11/12 修正）：ガラポン/クーポン一覧ボタン・スタートダッシュを赤で目立たせる
+   ========================================================= */
+/* ボタン共通：文字を大きく、中身を中央に寄せて右の空きをなくす */
+.bf-rd.bf-rd.bf-rd .schedule-game-callout{justify-content:center;gap:14px;padding:14px 16px!important}
+.bf-rd.bf-rd.bf-rd .schedule-game-callout>span:not(.game-callout-arrow){flex:0 1 auto;min-width:0}
+.bf-rd.bf-rd.bf-rd .schedule-game-callout strong{font-size:clamp(22px,6.6vw,40px)!important;line-height:1.25!important;letter-spacing:.04em}
+.bf-rd.bf-rd.bf-rd .schedule-game-callout small{font-size:clamp(14px,4vw,20px)!important;padding:4px 14px!important}
+.bf-rd.bf-rd.bf-rd .schedule-game-callout .kuji-overview-icon{width:clamp(70px,20vw,120px)!important}
+.bf-rd.bf-rd.bf-rd .schedule-game-callout .game-callout-arrow{margin-left:6px;width:clamp(36px,9vw,52px);height:clamp(36px,9vw,52px);font-size:clamp(13px,3.4vw,18px)!important}
+.bf-rd.bf-rd.bf-rd .schedule-game-callout strong br{display:block}
+
+/* クーポン一覧ボタン（黒地×ピンクゴールド） */
+.bf-rd.bf-rd.bf-rd .rd-coupon-callout{background:var(--rd-black)!important;color:#fff!important;box-shadow:0 4px 0 #000!important;border:2px solid var(--rd-gold)!important;margin-top:16px!important}
+.bf-rd.bf-rd.bf-rd .rd-coupon-callout strong{color:var(--rd-gold-hi)!important}
+.bf-rd.bf-rd.bf-rd .rd-coupon-callout small{background:var(--rd-g-gold)!important;color:var(--rd-black)!important}
+.bf-rd.bf-rd.bf-rd .rd-coupon-callout .game-callout-arrow{background:var(--rd-g-gold)!important;color:var(--rd-black)!important}
+.rd-ticket-icon{flex:0 0 auto;width:clamp(70px,20vw,120px);height:auto;transform-origin:50% 50%;animation:rdWobble 2.4s ease-in-out .6s infinite}
+.bf-rd.bf-rd.bf-rd .rd-coupon-callout:after{animation-delay:1.2s}
+
+/* スタートダッシュ：赤地に白文字で大きく */
+.bf-rd .bf-cal-dash{background:var(--rd-red);border:0;color:#fff!important;padding:16px 16px 18px;gap:4px 10px;box-shadow:0 4px 0 #8c0d22}
+.bf-rd .bf-cal-dash-tag{background:#fff;color:var(--rd-red);font-size:14px}
+.bf-rd .bf-cal-dash-name{color:#fff;font-size:19px;white-space:nowrap}
+.bf-rd .bf-cal-dash-time,.bf-rd .bf-cal-dash-cond{color:#fff;font-size:15px}
+.bf-rd .bf-cal-dash-cond{display:inline-block;justify-self:start;background:rgba(255,255,255,.2);padding:2px 8px;border-radius:6px}
+.bf-rd .bf-cal-dash-off{color:#fff;font-size:clamp(52px,15vw,92px)!important;grid-row:2/5;line-height:.9}
+.bf-rd .bf-cal-dash-off i{font-size:.32em}
+@media (max-width:767px){
+  .bf-rd .bf-cal-dash{grid-template-columns:1fr}
+  .bf-rd .bf-cal-dash-off{grid-column:1;grid-row:auto;font-size:64px!important;margin-top:4px}
+  .bf-rd .bf-cal-dash-name{font-size:20px}
+}
+@media (min-width:768px){
+  .bf-rd .bf-cal-dash{padding:22px 32px}
+  .bf-rd .bf-cal-dash-name{font-size:28px}
+  .bf-rd .bf-cal-dash-time,.bf-rd .bf-cal-dash-cond{font-size:19px}
+  .bf-rd .bf-cal-dash-tag{font-size:17px}
+}
+@media (max-width:767px){
+  .bf-rd.bf-rd.bf-rd .schedule-game-callout{gap:12px;padding:14px 14px!important;justify-content:flex-start}
+  .bf-rd.bf-rd.bf-rd .schedule-game-callout .game-callout-arrow{display:none!important}
+  .bf-rd.bf-rd.bf-rd .schedule-game-callout .kuji-overview-icon,.bf-rd.bf-rd.bf-rd .rd-ticket-icon{width:58px!important}
+  .bf-rd.bf-rd.bf-rd .schedule-game-callout strong{font-size:21px!important;letter-spacing:.02em;white-space:nowrap}
+  .bf-rd.bf-rd.bf-rd .schedule-game-callout small{font-size:13px!important;letter-spacing:0;white-space:nowrap;padding:3px 10px!important}
+}
+
 </style>
 </head>
 
@@ -7857,22 +7904,7 @@ PC：768px以上／SP：767px以下。画像と商品情報の枠はHTMLコメ�
 <!-- ▲ BF期間カレンダー -->
 
           <p class="timeline-caption">当店限定クーポンは、<strong>11/27（金）23:59までご利用いただけます。</strong></p>
-          <h3 class="schedule-offers-title">クーポン・お楽しみ企画もチェック！</h3>
-          <ul class="schedule-grid schedule-offers">
-<li class="schedule-card schedule-open"><span class="schedule-step">START DASH</span>
-              <h3>11/19（木）20:00〜23:59<b>開始4時間限定</b></h3>
-              <p class="schedule-condition coupon-purchase-condition">3,000円以上のお買い物で</p>
-              <p class="schedule-benefit"><strong>250</strong>円OFF</p><a href="#start-coupon" class="schedule-link">クーポンを見る
-                <span aria-hidden="true">▶</span></a>
-            </li>
-<li class="schedule-card schedule-daily"><span class="schedule-step">DAILY COUPON</span>
-              <h3>20日<span>（金）</span>〜24日<span>（火）</span><span class="schedule-daily-time"><b>毎日15:00</b><span class="schedule-label">先着20件</span></span></h3>
-              <p class="schedule-condition coupon-purchase-condition">5,900円以上のお買い物で</p>
-              <p class="schedule-benefit"><strong>500</strong>円OFF</p><a href="#daily-coupons" class="schedule-link">クーポンを見る
-                <span aria-hidden="true">▶</span></a>
-            </li>
-
-          </ul>
+          <a class="schedule-game-callout rd-coupon-callout" href="#coupons"><svg class="rd-ticket-icon" viewBox="0 0 120 80" aria-hidden="true"><path d="M8 8h104v20a12 12 0 0 0 0 24v20H8V52a12 12 0 0 0 0-24z" fill="#fdf5e1"/><path d="M78 14v52" stroke="#e7a1a4" stroke-width="3" stroke-dasharray="5 5"/><text x="42" y="50" text-anchor="middle" font-family="Jost,sans-serif" font-weight="700" font-size="26" fill="#c4142f">OFF</text></svg><span><strong>クーポン一覧をチェック</strong><small>最大2,000円OFF・まとめてゲット</small></span><span class="game-callout-arrow" aria-hidden="true">▶</span></a>
 <a class="schedule-game-callout" href="#lottery"><svg class="kuji-overview-icon" viewBox="0 0 120 110" aria-hidden="true"><path d="M30 72 L22 103 H42 L49 75 M65 75 L73 103 H91 L80 70" fill="#191919"/><path d="M34 8 H66 L90 32 V64 L66 88 H34 L10 64 V32 Z" fill="#191919" stroke="#f3a4af" stroke-width="4"/><path d="M90 48 H109 V25" fill="none" stroke="#191919" stroke-width="6"/><rect x="103" y="14" width="12" height="22" rx="4" fill="#f3a4af" stroke="#191919" stroke-width="2"/><path d="M27 26 L74 73 M74 26 L27 73" stroke="#f3a4af" stroke-width="2"/><circle cx="51" cy="49" r="8" fill="#f3a4af"/></svg><span><strong>クーポンが当たる！<br>ガラポン抽選会</strong><small>1日1回・ハズレなし</small></span><span class="game-callout-arrow" aria-hidden="true">▶</span></a>
 
         </div>
