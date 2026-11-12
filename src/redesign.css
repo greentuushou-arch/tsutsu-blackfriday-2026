@@ -816,3 +816,14 @@ a.bf-cal-row:active{background:rgba(255,255,255,.05)}
   .bf-rd.bf-rd.bf-rd .schedule-game-callout .kuji-overview-icon,.bf-rd.bf-rd.bf-rd .rd-ticket-icon{width:min(11cqw,120px)!important}
   .bf-rd.bf-rd.bf-rd .schedule-game-callout .game-callout-arrow{width:min(5.4cqw,56px);height:min(5.4cqw,56px)}
 }
+
+/* v14：スマホの吹き出しを整える（全幅＋口で19日を指す、目印は文字の上を通らない細い線に） */
+@media (max-width:767px){
+  .bf-rd.bf-rd.bf-rd .bf-cal-dash{--from:0%;--w:100%;margin-left:0;margin-top:16px}
+  .bf-rd.bf-rd.bf-rd .bf-cal-dash:before{border-width:0 11px 12px}
+  .bf-cal-dashmark{width:4px;margin-left:-1px;background:var(--rd-red);border:0;bottom:-16px}
+  .bf-rd .bf-cal-label{position:relative;z-index:2;background:#fff;padding-block:2px}
+  .bf-rd .bf-cal-row{position:relative}
+}
+.bf-rd .bf-cal-track{z-index:1}
+:root{--rd-card-border:5px}

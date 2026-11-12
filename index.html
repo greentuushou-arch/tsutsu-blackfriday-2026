@@ -7781,6 +7781,17 @@ a.bf-cal-row:active{background:rgba(255,255,255,.05)}
   .bf-rd.bf-rd.bf-rd .schedule-game-callout .game-callout-arrow{width:min(5.4cqw,56px);height:min(5.4cqw,56px)}
 }
 
+/* v14：スマホの吹き出しを整える（全幅＋口で19日を指す、目印は文字の上を通らない細い線に） */
+@media (max-width:767px){
+  .bf-rd.bf-rd.bf-rd .bf-cal-dash{--from:0%;--w:100%;margin-left:0;margin-top:16px}
+  .bf-rd.bf-rd.bf-rd .bf-cal-dash:before{border-width:0 11px 12px}
+  .bf-cal-dashmark{width:4px;margin-left:-1px;background:var(--rd-red);border:0;bottom:-16px}
+  .bf-rd .bf-cal-label{position:relative;z-index:2;background:#fff;padding-block:2px}
+  .bf-rd .bf-cal-row{position:relative}
+}
+.bf-rd .bf-cal-track{z-index:1}
+:root{--rd-card-border:5px}
+
 </style>
 </head>
 
@@ -7972,7 +7983,7 @@ PC：768px以上／SP：767px以下。画像と商品情報の枠はHTMLコメ�
       </div>
       <section class="event-schedule" id="schedule" aria-labelledby="schedule-title">
         <div class="schedule-inner">
-          <h2 id="schedule-title" class="event-bubble"><b>10</b>日間カレンダー</h2>
+          <h2 id="schedule-title" class="event-bubble"><b>10</b>日間のお得カレンダー</h2>
           <!-- ▼ BF期間カレンダー（スマホでも1画面に収まる10日間タイムライン）
      位置は「11/18 0:00」起点の時間割合(%)で指定。日程を変える時は style の --s(開始%) と --e(終了%) を直す。
      1日 = 10%（10日間）。例：19日20:00 = (24+20)/240 = 18.33% -->

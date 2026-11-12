@@ -53,7 +53,7 @@ def main() -> None:
     html = must_replace(
         html,
         '<h2 id="schedule-title" class="event-bubble">当店クーポンは<b>10</b>日間！</h2>',
-        '<h2 id="schedule-title" class="event-bubble"><b>10</b>日間カレンダー</h2>',
+        '<h2 id="schedule-title" class="event-bubble"><b>10</b>日間のお得カレンダー</h2>',
         "calendar title",
     )
     html = must_replace(html, "<span>初めてご利用のお客様には</span>", "<span>初めてご利用のお客様は</span>", "entry lead")
