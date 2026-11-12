@@ -7747,6 +7747,17 @@ a.bf-cal-row:active{background:rgba(255,255,255,.05)}
   .bf-rd.bf-rd.bf-rd .bf-cal-dash-tag,.bf-rd.bf-rd.bf-rd .bf-cal-dash-cond{align-self:center}
 }
 
+/* v12：広い画面・縮小表示でBLACK FRIDAYが枠からはみ出して切れないように */
+@media (min-width:768px){
+  .bf-rd.bf-rd.bf-rd .hero h1{font-size:min(9.6vw,150px)!important;width:max-content!important;max-width:100%!important;margin-left:auto!important;margin-right:auto!important;justify-content:center}
+}
+/* 開催期間と日付を1行に */
+.bf-rd.bf-rd.bf-rd .festival-period{display:block;white-space:nowrap}
+.bf-rd.bf-rd.bf-rd .festival-period .campaign-period-label{display:inline!important;margin:0 .6em 0 0!important;font-size:inherit!important}
+@media (max-width:767px){.bf-rd.bf-rd.bf-rd .festival-period{font-size:clamp(13px,3.9vw,16px)!important;letter-spacing:.02em}}
+/* 追従ヘッダーも FV と同じ細長さ（元ページのFVは横65%に縮めている） */
+.bf-rd.bf-rd.bf-rd .floating-brand strong{display:inline-block!important;transform:scaleX(.65);transform-origin:center;font-size:32px!important;line-height:1.1!important}
+
 </style>
 </head>
 
