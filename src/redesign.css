@@ -708,3 +708,39 @@ a.bf-cal-row:active{background:rgba(255,255,255,.05)}
   .bf-rd.bf-rd.bf-rd .schedule-game-callout strong{font-size:21px!important;letter-spacing:.02em;white-space:nowrap}
   .bf-rd.bf-rd.bf-rd .schedule-game-callout small{font-size:13px!important;letter-spacing:0;white-space:nowrap;padding:3px 10px!important}
 }
+
+/* =========================================================
+   v9（11/12 修正）：枠線をそろえる・見出し下を詰める・スタートダッシュを中央に
+   ========================================================= */
+:root{--rd-card-border:3px}
+/* 初めての方ブロックとカレンダーは同じ太さの枠 */
+.bf-rd.bf-rd.bf-rd .rd-entry{border:var(--rd-card-border) solid var(--rd-pink)}
+.bf-rd.bf-rd.bf-rd .bf-cal{border:var(--rd-card-border) solid var(--rd-dusty)}
+
+/* 10日間カレンダーの見出し下を詰める */
+.bf-rd.bf-rd.bf-rd .event-schedule #schedule-title{margin-bottom:6px!important;padding-bottom:0!important}
+.bf-rd.bf-rd.bf-rd .bf-cal{margin-top:6px}
+.bf-rd.bf-rd.bf-rd .event-schedule{padding-bottom:20px!important}
+
+/* スタートダッシュ：中身を中央に */
+.bf-rd.bf-rd.bf-rd .bf-cal-dash{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px}
+.bf-rd.bf-rd.bf-rd .bf-cal-dash>*{grid-column:auto;grid-row:auto;justify-self:auto}
+.bf-rd.bf-rd.bf-rd .bf-cal-dash-off{margin-top:2px}
+@media (min-width:768px){
+  .bf-rd.bf-rd.bf-rd .bf-cal-dash{display:grid;grid-template-columns:auto auto;justify-content:center;align-items:center;column-gap:48px;row-gap:4px;text-align:left}
+  .bf-rd.bf-rd.bf-rd .bf-cal-dash>*{grid-column:1}
+  .bf-rd.bf-rd.bf-rd .bf-cal-dash-tag,.bf-rd.bf-rd.bf-rd .bf-cal-dash-cond{justify-self:start}
+  .bf-rd.bf-rd.bf-rd .bf-cal-dash-off{grid-column:2;grid-row:1/5;margin:0}
+}
+
+/* そのほかのバランス：中央の要素をそろえる */
+.bf-rd.bf-rd.bf-rd .rd-entry{align-items:center;text-align:center}
+.bf-rd.bf-rd.bf-rd .rd-daily-head{justify-content:center;gap:20px}
+.bf-rd.bf-rd.bf-rd .rd-daily-head>div{flex:0 1 auto;text-align:left}
+.bf-rd.bf-rd.bf-rd .bf-cal-note{margin:12px auto 0;max-width:40em}
+@media (min-width:768px){.bf-rd.bf-rd.bf-rd .bf-cal-note{max-width:none}}
+/* クーポン券：最後の段を中央に */
+.bf-rd.bf-rd.bf-rd .coupon-grid{display:flex!important;flex-wrap:wrap;justify-content:center;gap:10px!important}
+.bf-rd.bf-rd.bf-rd .coupon-grid>.coupon{flex:0 0 calc((100% - 10px)/2);max-width:calc((100% - 10px)/2);margin:0!important}
+.bf-rd.bf-rd.bf-rd .coupon-grid>.coupon:not(:has(img[src]:not([src=""]))){display:none!important}
+@media (min-width:768px){.bf-rd.bf-rd.bf-rd .coupon-grid>.coupon{flex-basis:calc((100% - 20px)/3);max-width:calc((100% - 20px)/3)}}
