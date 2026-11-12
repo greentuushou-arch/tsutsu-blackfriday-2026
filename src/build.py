@@ -28,6 +28,25 @@ def main() -> None:
     html = must_replace(html, "</head>", f"{fonts}<style id=\"bf-redesign\">\n{css}\n</style>\n</head>", "head")
     html = must_replace(html, "<body>", '<body class="bf-rd">', "body")
 
+    # 見出し・文言の変更（11/12 ユーザー指示）
+    html = must_replace(
+        html,
+        '<h2 id="schedule-title" class="event-bubble">当店クーポンは<b>10</b>日間！</h2>',
+        '<h2 id="schedule-title" class="event-bubble"><b>10</b>日間カレンダー</h2>',
+        "calendar title",
+    )
+    html = must_replace(html, "<span>初めてご利用のお客様には</span>", "<span>初めてご利用のお客様は</span>", "entry lead")
+
+    # 毎日15時クーポン：日付を「11/20」と「（金）」に分けて横並びの枠にする
+    import re as _re0
+    html, n = _re0.subn(
+        r'<span class="daily-date">(\d+/\d+)（(.)）</span>',
+        r'<span class="daily-date"><b>\1</b><small>（\2）</small></span>',
+        html,
+    )
+    if n != 5:
+        sys.exit(f"[build] daily-date が {n} 件（5件のはず）")
+
     # ロゴは透過PNG（生成りの文字＋ピンクのハート）に差し替え
     html = must_replace(
         html,

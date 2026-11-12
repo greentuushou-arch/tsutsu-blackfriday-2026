@@ -77,11 +77,10 @@
     if (parts.length) raf = requestAnimationFrame(frame); else last = 0;
   }
   function start() { if (!raf) raf = requestAnimationFrame(frame); }
-  function bump() { title.classList.remove('is-bump'); void title.offsetWidth; title.classList.add('is-bump'); }
   function loop() {
     clearTimeout(timer);
     timer = setTimeout(function () {
-      if (inView && !document.hidden) { var o = origin(); burst(SMALL_BURST, o.x + rand(-60, 60), o.y, 0.75); bump(); }
+      if (inView && !document.hidden) { var o = origin(); burst(SMALL_BURST, o.x + rand(-60, 60), o.y, 0.75); }
       loop();
     }, REPEAT_MS);
   }
@@ -96,7 +95,7 @@
     var o = origin(); burst(BIG_BURST, o.x, o.y, 1); loop();
   }
   title.addEventListener('animationend', function (ev) { if (ev.animationName === 'rdPop') openingBurst(); });
-  setTimeout(openingBurst, 1200);
+  setTimeout(openingBurst, 300);
   hero.addEventListener('click', function (ev) {
     if (ev.target.closest('a,button')) return;
     var h = hero.getBoundingClientRect(); burst(SMALL_BURST, ev.clientX - h.left, ev.clientY - h.top, 0.7);

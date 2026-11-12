@@ -7566,6 +7566,66 @@ a.bf-cal-row:active{background:rgba(255,255,255,.05)}
 @media (min-width:768px){.bf-cal-dash-off{font-size:60px}.bf-rd.bf-rd.bf-rd .schedule-game-callout{max-width:1000px;margin:16px auto 0!important}}
 @media (max-width:767px){.bf-cal-dash{padding:14px 12px}.bf-cal-dash-off{font-size:34px}.bf-cal-dash-name{font-size:15px}}
 
+/* =========================================================
+   v7（11/12 修正）：BLACK FRIDAYは止める・ロゴ小さめ・毎日15時を横並び・P10倍の文字
+   ========================================================= */
+/* BLACK FRIDAY の文字は動かさない（ハートだけはじける） */
+.bf-rd.bf-rd.bf-rd .hero h1,.bf-rd.bf-rd.bf-rd .hero h1 span{animation:none!important;background-position:30% 0!important}
+.rd-promise{animation:none}
+
+/* ロゴは少し小さく */
+.bf-rd.bf-rd.bf-rd .hero-copy-group>.festival-copy-image.rd-logo{width:150px!important}
+@media (min-width:768px){.bf-rd.bf-rd.bf-rd .hero-copy-group>.festival-copy-image.rd-logo{width:200px!important}}
+
+/* 商品レーン下の筋：FVと下の黒の色をそろえ、境目をなくす */
+.bf-rd.bf-rd.bf-rd #original-header,.bf-rd.bf-rd.bf-rd .tabs{background:var(--rd-black)!important}
+.bf-rd.bf-rd.bf-rd .hero{background:radial-gradient(120% 60% at 50% 0%,#2e211f 0%,var(--rd-black) 55%) var(--rd-black)!important;padding-bottom:10px!important}
+.bf-rd.bf-rd.bf-rd .hero-product-marquee{margin-bottom:0!important}
+.bf-rd.bf-rd.bf-rd .tabs{border-top:0!important;box-shadow:none!important}
+
+/* 初めての方 P10倍：文字を大きく */
+.bf-rd.bf-rd.bf-rd .rd-entry>span{font-size:18px}
+.bf-rd.bf-rd.bf-rd .rd-entry>strong{font-size:clamp(28px,8.4vw,44px)}
+.bf-rd.bf-rd.bf-rd .rd-entry>small{font-size:15px}
+@media (min-width:768px){.bf-rd.bf-rd.bf-rd .rd-entry>span{font-size:22px}.bf-rd.bf-rd.bf-rd .rd-entry>strong{font-size:48px}.bf-rd.bf-rd.bf-rd .rd-entry>small{font-size:17px}}
+
+/* カレンダー見出し */
+.bf-rd.bf-rd.bf-rd .event-schedule #schedule-title b{font-size:1.5em}
+
+/* 毎日15時：5日分を横並びの枠に */
+.bf-rd.bf-rd.bf-rd .daily-coupon-grid{grid-template-columns:repeat(5,1fr)!important;gap:6px!important;padding-top:14px!important}
+.bf-rd.bf-rd.bf-rd .daily-day-card{display:flex!important;flex-direction:column;align-items:center;justify-content:flex-start;gap:4px;padding:12px 2px 10px!important;text-align:center;border-radius:12px!important;min-height:0!important}
+.bf-rd.bf-rd.bf-rd .daily-day-card .daily-date{display:flex;flex-direction:column;align-items:center;line-height:1.15;text-align:center!important;white-space:normal}
+.bf-rd.bf-rd.bf-rd .daily-day-card .daily-date b{font-family:"Jost","Noto Sans JP",sans-serif;font-size:20px;font-weight:700;letter-spacing:0}
+.bf-rd.bf-rd.bf-rd .daily-day-card .daily-date small{font-size:14px;font-weight:700;color:rgba(255,255,255,.75)}
+.bf-rd.bf-rd.bf-rd .daily-day-card .daily-date:after{content:"15:00〜";display:block;margin-top:4px;font-size:13px;letter-spacing:0;white-space:normal;color:rgba(255,255,255,.7)}
+.bf-rd.bf-rd.bf-rd .daily-day-card .daily-today-badge{position:absolute!important;top:-11px;left:50%;transform:translateX(-50%)!important;order:-1;
+  font-size:12px!important;letter-spacing:0;padding:2px 6px!important;white-space:nowrap;border-radius:999px!important}
+.bf-rd.bf-rd.bf-rd .daily-day-card.is-featured{border-color:var(--rd-gold)!important;background:#2c1f1c!important;box-shadow:inset 0 0 0 1px var(--rd-gold)}
+.bf-rd.bf-rd.bf-rd .daily-day-card[aria-disabled="false"]:after{content:"獲得 ▶";grid-column:auto;font-size:13px;padding:5px 8px;margin-top:4px;border-radius:999px;width:calc(100% - 8px);box-sizing:border-box}
+@media (min-width:768px){
+  .bf-rd.bf-rd.bf-rd .daily-coupon-grid{gap:12px!important}
+  .bf-rd.bf-rd.bf-rd .daily-day-card{padding:18px 8px 16px!important}
+  .bf-rd.bf-rd.bf-rd .daily-day-card .daily-date b{font-size:32px}
+  .bf-rd.bf-rd.bf-rd .daily-day-card .daily-date small{font-size:18px}
+  .bf-rd.bf-rd.bf-rd .daily-day-card .daily-date:after{font-size:17px}
+  .bf-rd.bf-rd.bf-rd .daily-day-card .daily-today-badge{font-size:15px!important;padding:3px 12px!important;top:-14px}
+}
+.bf-rd.bf-rd.bf-rd .rd-entry>strong{font-size:clamp(24px,7.2vw,44px);white-space:nowrap;letter-spacing:.02em}
+@media (max-width:767px){
+  .bf-rd.bf-rd.bf-rd .daily-day-card .daily-date b{font-size:16.5px}
+  .bf-rd.bf-rd.bf-rd .daily-day-card .daily-date small{font-size:13px}
+  .bf-rd.bf-rd.bf-rd .daily-day-card .daily-date:after{font-size:12.5px}
+  .bf-rd.bf-rd.bf-rd .daily-day-card{padding:14px 2px 10px!important}
+}
+@media (min-width:768px){.bf-rd.bf-rd.bf-rd .rd-entry>strong{font-size:48px}}
+.bf-rd.bf-rd.bf-rd .daily-day-card .daily-today-badge{width:max-content!important;max-width:none!important;min-width:0!important;z-index:2}
+.bf-rd .bf-row-daily .bf-cal-label strong span{font-size:inherit;color:var(--rd-red)}
+.bf-cal-dash-cond{grid-column:1;font-size:15px;font-weight:700;color:var(--rd-red)}
+.bf-cal-dash-off{grid-row:2/5}
+@media (min-width:768px){.bf-cal-dash-cond{font-size:18px}}
+@media (max-width:767px){.bf-rd .bf-row-daily .bf-cal-label em{display:none}.bf-cal-dash-off{font-size:31px}.bf-cal-dash{gap:2px 6px}}
+
 </style>
 </head>
 
@@ -7750,14 +7810,14 @@ PC：768px以上／SP：767px以下。画像と商品情報の枠はHTMLコメ�
     <main>
       <div class="container">
         <a class="rd-entry" data-url="" aria-label="当店はじめてのご購入で全品ポイント10倍・エントリー">
-            <span>初めてご利用のお客様には</span>
+            <span>初めてご利用のお客様は</span>
             <strong>全品ポイント<span>10</span>倍！</strong>
             <small>当店はじめてのご購入が対象・エントリーはこちら ▶</small>
           </a>
       </div>
       <section class="event-schedule" id="schedule" aria-labelledby="schedule-title">
         <div class="schedule-inner">
-          <h2 id="schedule-title" class="event-bubble">当店クーポンは<b>10</b>日間！</h2>
+          <h2 id="schedule-title" class="event-bubble"><b>10</b>日間カレンダー</h2>
           <!-- ▼ BF期間カレンダー（スマホでも1画面に収まる10日間タイムライン）
      位置は「11/18 0:00」起点の時間割合(%)で指定。日程を変える時は style の --s(開始%) と --e(終了%) を直す。
      1日 = 10%（10日間）。例：19日20:00 = (24+20)/240 = 18.33% -->
@@ -7780,7 +7840,7 @@ PC：768px以上／SP：767px以下。画像と商品情報の枠はHTMLコメ�
     </div>
 
     <a class="bf-cal-row bf-row-daily" href="#daily-coupons">
-      <p class="bf-cal-label"><strong>毎日15時クーポン</strong><span>500円OFF</span><em>先着20件 ▶</em></p>
+      <p class="bf-cal-label"><strong>毎日先着20名！15時に<span>500円OFF</span>クーポン</strong><em>▶</em></p>
       <div class="bf-cal-track"><div class="bf-cal-bar" style="--s:26.25%;--e:70%"><span>毎日15:00〜</span></div></div>
     </a>
   </div>
@@ -7790,6 +7850,7 @@ PC：768px以上／SP：767px以下。画像と商品情報の枠はHTMLコメ�
     <span class="bf-cal-dash-tag">開始4時間だけ</span>
     <span class="bf-cal-dash-name">スタートダッシュクーポン</span>
     <span class="bf-cal-dash-time">19日（木）20:00〜23:59</span>
+    <span class="bf-cal-dash-cond">3,000円以上で使える</span>
     <strong class="bf-cal-dash-off">250<i>円OFF</i></strong>
   </a>
 </div>
@@ -7855,31 +7916,31 @@ PC：768px以上／SP：767px以下。画像と商品情報の枠はHTMLコメ�
               <!-- 11/20分：data-coupon-urlに獲得URLを設定。完成画像は下のimgのコメントを外して使用。 -->
               <a class="slide daily-day-card" id="daily-coupon-20261120" data-coupon-day="2026-11-20" data-coupon-url="" aria-disabled="true" tabindex="-1">
                 <span class="daily-today-badge" hidden>今日はコレ！</span>
-                <span class="daily-date">11/20（金）</span>
+                <span class="daily-date"><b>11/20</b><small>（金）</small></span>
                 <span class="daily-card-image"><span class="daily-card-placeholder"><small>5,900円以上のお買い物で</small><strong>500円OFF</strong></span><!-- <img src="image/daily-coupon-1120.png" alt="11月20日15時から・先着20件・500円OFFクーポン"> --></span>
               </a>
               <!-- 11/21分：data-coupon-urlに獲得URLを設定。完成画像は下のimgのコメントを外して使用。 -->
               <a class="slide daily-day-card" id="daily-coupon-20261121" data-coupon-day="2026-11-21" data-coupon-url="" aria-disabled="true" tabindex="-1">
                 <span class="daily-today-badge" hidden>今日はコレ！</span>
-                <span class="daily-date">11/21（土）</span>
+                <span class="daily-date"><b>11/21</b><small>（土）</small></span>
                 <span class="daily-card-image"><span class="daily-card-placeholder"><small>5,900円以上のお買い物で</small><strong>500円OFF</strong></span><!-- <img src="image/daily-coupon-1121.png" alt="11月21日15時から・先着20件・500円OFFクーポン"> --></span>
               </a>
               <!-- 11/22分：data-coupon-urlに獲得URLを設定。完成画像は下のimgのコメントを外して使用。 -->
               <a class="slide daily-day-card" id="daily-coupon-20261122" data-coupon-day="2026-11-22" data-coupon-url="" aria-disabled="true" tabindex="-1">
                 <span class="daily-today-badge" hidden>今日はコレ！</span>
-                <span class="daily-date">11/22（日）</span>
+                <span class="daily-date"><b>11/22</b><small>（日）</small></span>
                 <span class="daily-card-image"><span class="daily-card-placeholder"><small>5,900円以上のお買い物で</small><strong>500円OFF</strong></span><!-- <img src="image/daily-coupon-1122.png" alt="11月22日15時から・先着20件・500円OFFクーポン"> --></span>
               </a>
               <!-- 11/23分：data-coupon-urlに獲得URLを設定。完成画像は下のimgのコメントを外して使用。 -->
               <a class="slide daily-day-card" id="daily-coupon-20261123" data-coupon-day="2026-11-23" data-coupon-url="" aria-disabled="true" tabindex="-1">
                 <span class="daily-today-badge" hidden>今日はコレ！</span>
-                <span class="daily-date">11/23（月）</span>
+                <span class="daily-date"><b>11/23</b><small>（月）</small></span>
                 <span class="daily-card-image"><span class="daily-card-placeholder"><small>5,900円以上のお買い物で</small><strong>500円OFF</strong></span><!-- <img src="image/daily-coupon-1123.png" alt="11月23日15時から・先着20件・500円OFFクーポン"> --></span>
               </a>
               <!-- 11/24分：data-coupon-urlに獲得URLを設定。完成画像は下のimgのコメントを外して使用。 -->
               <a class="slide daily-day-card" id="daily-coupon-20261124" data-coupon-day="2026-11-24" data-coupon-url="" aria-disabled="true" tabindex="-1">
                 <span class="daily-today-badge" hidden>今日はコレ！</span>
-                <span class="daily-date">11/24（火）</span>
+                <span class="daily-date"><b>11/24</b><small>（火）</small></span>
                 <span class="daily-card-image"><span class="daily-card-placeholder"><small>5,900円以上のお買い物で</small><strong>500円OFF</strong></span><!-- <img src="image/daily-coupon-1124.png" alt="11月24日15時から・先着20件・500円OFFクーポン"> --></span>
               </a>
             </div>
@@ -10300,11 +10361,10 @@ window.addEventListener(&#x27;load&#x27;,reportSize);window.addEventListener(&#x
     if (parts.length) raf = requestAnimationFrame(frame); else last = 0;
   }
   function start() { if (!raf) raf = requestAnimationFrame(frame); }
-  function bump() { title.classList.remove('is-bump'); void title.offsetWidth; title.classList.add('is-bump'); }
   function loop() {
     clearTimeout(timer);
     timer = setTimeout(function () {
-      if (inView && !document.hidden) { var o = origin(); burst(SMALL_BURST, o.x + rand(-60, 60), o.y, 0.75); bump(); }
+      if (inView && !document.hidden) { var o = origin(); burst(SMALL_BURST, o.x + rand(-60, 60), o.y, 0.75); }
       loop();
     }, REPEAT_MS);
   }
@@ -10319,7 +10379,7 @@ window.addEventListener(&#x27;load&#x27;,reportSize);window.addEventListener(&#x
     var o = origin(); burst(BIG_BURST, o.x, o.y, 1); loop();
   }
   title.addEventListener('animationend', function (ev) { if (ev.animationName === 'rdPop') openingBurst(); });
-  setTimeout(openingBurst, 1200);
+  setTimeout(openingBurst, 300);
   hero.addEventListener('click', function (ev) {
     if (ev.target.closest('a,button')) return;
     var h = hero.getBoundingClientRect(); burst(SMALL_BURST, ev.clientX - h.left, ev.clientY - h.top, 0.7);
